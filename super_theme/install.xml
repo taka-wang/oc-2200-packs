@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Super Custom Theme</name>
+    <code>Super Custom Theme</code>
+    <version>2.2</version>
+	<author><![CDATA[Giang Nguyen mouse.nguyen2205@gmail.com]]></author>
+	<file path="catalog/controller/common/header.php">
+		<operation>
+			<search><![CDATA[
+			$data['title'] = $this->document->getTitle();
+			]]></search>
+			<add position="after"><![CDATA[
+			$data['mousepanel'] = $this->load->controller('common/mousepanel');
+	        ]]></add>
+		</operation>
+	</file>
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+		<operation>
+			<search><![CDATA[
+			</head>
+			]]></search>
+			<add position="before"><![CDATA[
+			<?php echo $mousepanel; ?>
+	        ]]></add>
+		</operation>
+	</file>
+</modification>

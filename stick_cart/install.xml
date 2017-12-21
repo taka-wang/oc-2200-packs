@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Stick cart to the top</name>
+    <version>0.3</version>
+    <author>Taka Wang</author>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <code>stick_cart_to_the_top</code>
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation>
+            <search><![CDATA[<header>]]></search>
+            <add position="replace"><![CDATA[<header id="header">]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/common/footer.tpl">
+        <operation>
+            <search><![CDATA[
+            <p><?php echo $powered; ?></p>
+            ]]></search>
+            <add position="after"><![CDATA[
+    <!-- [Begin] stick_cart_to_the_top -->
+    <style type="text/css">
+        @media (max-width: 768px) {
+            .fixed-header {
+                background: none repeat scroll 0 0 #f5f5f5;
+                padding: 15px 0 0 0;
+                position: fixed;
+                top: 0;
+                width: 100%;
+                z-index: 999;
+                box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+        $(function() {
+            $(window).scroll(function(){
+                if($(window).scrollTop() > 140){
+                    $("#header").addClass("fixed-header");
+                    $("#header .col-sm-4").addClass("col-xs-6 hidden-xs");
+                    $("#header .col-sm-5").addClass("hidden-xs");
+                    $("#header .col-sm-3").addClass("col-xs-12");
+                } else {
+                    $("#header").removeClass("fixed-header");
+                }
+            });
+        });
+    </script>
+    <!-- [End] stick_cart_to_the_top -->
+            ]]></add>
+        </operation>
+    </file>  
+</modification>
