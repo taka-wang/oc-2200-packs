@@ -225,17 +225,17 @@ CREATE TABLE `oc_attribute_description` (
 --
 
 INSERT INTO `oc_attribute_description` (`attribute_id`, `language_id`, `name`) VALUES
-(1, 1, 'Description'),
+(1, 1, '描述'),
 (2, 1, 'No. of Cores'),
-(4, 1, 'test 1'),
-(5, 1, 'test 2'),
-(6, 1, 'test 3'),
-(7, 1, 'test 4'),
-(8, 1, 'test 5'),
-(9, 1, 'test 6'),
-(10, 1, 'test 7'),
-(11, 1, 'test 8'),
-(3, 1, 'Clockspeed');
+(3, 1, 'Clockspeed'),
+(4, 1, '測試用 1'),
+(5, 1, '測試用 2'),
+(6, 1, '測試用 3'),
+(7, 1, '測試用 4'),
+(8, 1, '測試用 5'),
+(9, 1, '測試用 6'),
+(10, 1, '測試用 7'),
+(11, 1, '測試用 8');
 
 -- --------------------------------------------------------
 
@@ -1426,8 +1426,8 @@ CREATE TABLE `oc_language` (
 --
 
 INSERT INTO `oc_language` (`language_id`, `name`, `code`, `locale`, `image`, `directory`, `sort_order`, `status`) VALUES
-(1, 'Taiwan', 'zh-TW', 'zh_TW.UTF-8,zh_TW,zh-hk,traditional-chinese', 'tw.png', 'zh-TW', 1, 1);
-(2, 'English', 'en-g', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 2, 0),
+(1, 'Taiwan', 'zh-TW', 'zh_TW.UTF-8,zh_TW,zh-hk,traditional-chinese', 'tw.png', 'zh-TW', 1, 1),
+(2, 'English', 'en-g', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 2, 0);
 
 -- (1, 'English', 'en-g', 'en_US.UTF-8,en_US,en-gb,english', 'gb.png', 'english', 2, 0),
 -- (2, 'Taiwan', 'zh-TW', 'zh_TW.UTF-8,zh_TW,zh-hk,traditional-chinese', 'tw.png', 'zh-TW', 1, 1),
