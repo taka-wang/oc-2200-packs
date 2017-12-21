@@ -1,0 +1,41 @@
+<modification>
+	<name>GuestOrderView</name>
+	<version>1.4</version>
+	<link>http://isenselabs.com</link>
+	<author>iSenseLabs</author>
+	<code>isenselabs_guestorderview</code>
+
+	<file path="catalog/language/*/module/account.php">
+		<operation>
+			<search><![CDATA[$_['text_recurring']   = 'Recurring payments';]]></search>
+			<add position="after"><![CDATA[
+				// Guest Order View
+				$_['guest_order_view']  = 'Guest Order View';
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="catalog/controller/module/account.php">
+		<operation>
+			<search><![CDATA[$data['text_recurring'] = $this->language->get('text_recurring');]]></search>
+			<add position="after"><![CDATA[
+				// Guest Order View
+				$data['guest_order_view'] = $this->language->get('guest_order_view');
+
+				$data['guest_order'] = $this->url->link('account/guestorder', '', 'SSL');
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="catalog/view/theme/*/template/module/account.tpl">
+		<operation>
+			<search><![CDATA[<a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a>]]></search>
+			<add position="replace"><![CDATA[
+				<a href="<?php echo $order; ?>" class="list-group-item"><?php echo $text_order; ?></a>
+				<?php if (!$logged) { ?>
+				<a href="<?php echo $guest_order; ?>" class="list-group-item"><?php echo $guest_order_view; ?></a>
+				<?php } ?>
+			]]></add>
+		</operation>
+	</file>
+</modification>

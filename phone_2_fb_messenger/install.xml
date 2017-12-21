@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Phone to facebook messenger</name>
+    <version>0.2</version>
+    <author>Taka Wang</author>
+    <link></link>
+    <code>phone_to_fb_messenger</code>
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation>
+            <search><![CDATA[<li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>]]></search>
+            <add position="replace"><![CDATA[
+                <li><a href="<?php echo 'http://m.me/' . $telephone; ?>" target="_blank"><i class="fa fa-facebook-official"></i> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></a></li>
+            ]]></add>
+        </operation>
+    </file>
+</modification>
