@@ -1359,10 +1359,10 @@ CREATE TABLE `oc_information_description` (
 --
 
 INSERT INTO `oc_information_description` (`information_id`, `language_id`, `title`, `description`, `meta_title`, `meta_description`, `meta_keyword`) VALUES
-(1, 2, '關於我們', '&lt;p&gt;\r\n	關於我們&lt;/p&gt;\r\n', '', '', ''),
-(2, 2, '購物條約', '&lt;p&gt;\r\n	購物 &amp;amp; 相關條約&lt;/p&gt;\r\n', '', '', ''),
-(3, 2, '隱私權聲明', '&lt;p&gt;\r\n	隱私權聲明&lt;/p&gt;\r\n', '', '', ''),
-(4, 2, '配送說明', '&lt;p&gt;\r\n	配送說明&lt;/p&gt;\r\n', '', '', '');
+(4, 1, 'About Us', '&lt;p&gt;\r\n	About Us&lt;/p&gt;\r\n', 'About Us', '', ''),
+(5, 1, 'Terms &amp; Conditions', '&lt;p&gt;\r\n	Terms &amp;amp; Conditions&lt;/p&gt;\r\n', 'Terms &amp; Conditions', '', ''),
+(3, 1, 'Privacy Policy', '&lt;p&gt;\r\n	Privacy Policy&lt;/p&gt;\r\n', 'Privacy Policy', '', ''),
+(6, 1, 'Delivery Information', '&lt;p&gt;\r\n	Delivery Information&lt;/p&gt;\r\n', 'Delivery Information', '', '');
 
 -- --------------------------------------------------------
 
