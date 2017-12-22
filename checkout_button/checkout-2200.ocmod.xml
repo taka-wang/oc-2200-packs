@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+  <name>Checkout Button</name>
+  <version>0.2</version>
+  <author>Taka Wang</author>
+  <link></link>
+  <code>checkout_button</code>
+
+  <file path="catalog/controller/product/product.php">
+    <operation>
+      <search><![CDATA[$data['button_cart'] = $this->language->get('button_cart');]]></search>
+      <add position="after"><![CDATA[$data['button_checkout'] = $this->language->get('button_checkout');]]></add>
+    </operation>
+  </file>
+
+  <file path="catalog/view/theme/default/template/product/product.tpl">
+    <operation>
+      <search><![CDATA[<button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>]]></search>
+      <add position="after"><![CDATA[<button type="button" id="button-checkout" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_checkout; ?></button>]]></add>
+    </operation>
+
+    <operation>
+      <search><![CDATA[$('#button-cart').on('click', function() {]]></search>
+      <add position="replace"><![CDATA[$('#button-cart, #button-checkout').on('click', function() { var $button = $(this);
+      ]]></add>
+    </operation>
+
+    <operation>
+      <search><![CDATA[$('html, body').animate({ scrollTop: 0 }, 'slow');]]></search>
+      <add position="replace"><![CDATA[
+        if ($button.is('#button-cart')) {
+          $('html, body').animate({ scrollTop: 0 }, 'slow');
+        } else {
+          window.location = "/index.php?route=checkout/checkout";
+        }
+      ]]></add>
+    </operation>
+
+  </file>
+
+</modification>
