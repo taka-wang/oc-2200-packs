@@ -29,6 +29,7 @@ $_['button_cancel']         = '取消';
 $_['button_compare']        = '商品比較';
 $_['button_wishlist']       = '商品收藏';
 $_['button_checkout']       = '結帳';
+$_['button_quick_checkout'] = '結帳';
 $_['button_confirm']        = '確認訂單';
 $_['button_coupon']         = '使用優惠券';
 $_['button_delete']         = '刪除';
