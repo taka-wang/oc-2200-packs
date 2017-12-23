@@ -1,0 +1,15 @@
+<modification>
+    <name>Remove Heading Titles</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_heading_title</code>
+
+    <file path="catalog/view/theme/default/template/module/{bestseller,featured,latest,special}*.tpl">
+        <operation error="skip">
+            <search><![CDATA[<h3><?php echo $heading_title; ?></h3>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+    </file>
+
+</modification>
