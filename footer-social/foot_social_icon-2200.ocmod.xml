@@ -59,8 +59,6 @@
 		</operation>
 	</file>
 
-
-
 	<file path="catalog/controller/common/footer.php">
         <operation error="skip">
 			<search><![CDATA[
@@ -80,15 +78,15 @@
 			]]></search>
 			<add position="before"><![CDATA[
 			if (isset($this->request->post['config_facebook_id'])) {
-			$data['config_facebook_id'] = $this->request->post['config_facebook_id'];
-				} else {
-					$data['config_facebook_id'] = $this->config->get('config_facebook_id');
-				}
-				if (isset($this->request->post['config_instagram_id'])) {
-					$data['config_instagram_id'] = $this->request->post['config_instagram_id'];
-				} else {
-					$data['config_instagram_id'] = $this->config->get('config_instagram_id');
-				}
+				$data['config_facebook_id'] = $this->request->post['config_facebook_id'];
+			} else {
+				$data['config_facebook_id'] = $this->config->get('config_facebook_id');
+			}
+			if (isset($this->request->post['config_instagram_id'])) {
+				$data['config_instagram_id'] = $this->request->post['config_instagram_id'];
+			} else {
+				$data['config_instagram_id'] = $this->config->get('config_instagram_id');
+			}
 			]]></add>
 		</operation>
 	</file>

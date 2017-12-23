@@ -1,0 +1,30 @@
+<modification>
+	<name>Remove Caption Description</name>
+	<version>0.1</version>
+	<link>https://github.com/taka-wang/oc-2200-packs</link>
+	<author>Taka Wang</author>
+	<code>remove_caption_desc</code>
+
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation error="skip">
+			<search><![CDATA[</head>]]></search>
+			<add position="before"><![CDATA[
+				<style type="text/css">
+                    .product-thumb h4 + p {
+                        display: none;
+                    } /* hide caption */
+                    .product-thumb .caption {
+                        min-height: 0px;
+                        /*height: 100px;*/
+                        text-align: center;
+                    } /* for single line caption */ 
+                    @media (max-width: 1200px) {
+                    .product-grid .product-thumb .caption {
+                        min-height: 100px; 
+                    } /* fix word wrapping */
+				</style>
+			]]></add>
+		</operation>
+    </file>
+
+</modification>
