@@ -16,6 +16,7 @@
 		</operation>
 	</file>
 
+	<!-- Chinese Localization  -->
 	<file path="catalog/language/zh-TW/module/account.php">
 		<operation>
 			<search><![CDATA[// Text]]></search>
