@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <modification>
   <name>Checkout Button</name>
-  <version>0.2.1</version>
+  <version>0.2.x</version>
   <author>Taka Wang</author>
-  <link></link>
+  <link>https://github.com/taka-wang/oc-2200-packs/tree/master/checkout_button</link>
   <code>checkout_button</code>
 
   <file path="catalog/view/theme/default/template/product/product.tpl">
     <operation>
       <search><![CDATA[<button type="button" id="button-cart" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block"><?php echo $button_cart; ?></button>]]></search>
       <add position="after"><![CDATA[<button type="button" id="button-checkout" data-loading-text="<?php echo $text_loading; ?>" class="btn btn-primary btn-lg btn-block">快速結帳</button>]]></add>
+      <!-- Chinese button name -->
     </operation>
 
-    <operation>
+    <operation><!-- Bind button-checkout to click event  -->
       <search><![CDATA[$('#button-cart').on('click', function() {]]></search>
       <add position="replace"><![CDATA[$('#button-cart, #button-checkout').on('click', function() { var $button = $(this);
       ]]></add>
     </operation>
 
-    <operation>
+    <operation><!-- If button is checkout, redirect to checkout page -->
       <search><![CDATA[$('html, body').animate({ scrollTop: 0 }, 'slow');]]></search>
       <add position="replace"><![CDATA[
         if ($button.is('#button-cart')) {
