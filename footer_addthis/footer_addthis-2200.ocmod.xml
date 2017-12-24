@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Footer AddThis</name>
+    <version>0.1</version>
+    <author>Taka Wang</author>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <code>footer_addthis</code>
+  
+    <file path="catalog/view/theme/*/template/common/footer.tpl">
+        <operation error="skip">
+			<search><![CDATA[<p><?php echo $powered; ?></p>]]></search>
+			<add position="after"><![CDATA[<div style="margin-top:-50px" class="pull-right addthis_inline_follow_toolbox"></div>]]></add>
+		</operation>
+        <operation error="skip">
+			<search><![CDATA[</footer>]]></search>
+			<add position="after"><![CDATA[<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5a3f4c3da47176fd"></script>]]></add>
+		</operation>
+	</file>
+</modification>
