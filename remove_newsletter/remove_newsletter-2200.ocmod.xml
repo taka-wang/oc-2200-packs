@@ -1,0 +1,62 @@
+<modification>
+    <name>Remove Newsletter</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_newsletter</code>
+
+    <file path="catalog/view/theme/*/template/common/footer.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/module/account.tpl">
+        <operation error="skip">
+            <search><![CDATA[<a href="<?php echo $newsletter; ?>" class="list-group-item"><?php echo $text_newsletter; ?></a>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/marketing/contact.tpl">
+        <operation error="skip">
+            <search><![CDATA[<option value="newsletter"><?php echo $text_newsletter; ?></option>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<label for="newsletter">]]></search>
+            <add position="before"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_newsletter; ?></label>]]></search>
+            <add position="after"><![CDATA[-->]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/account/account.tpl">
+        <operation error="skip">
+            <search><![CDATA[<h2><?php echo $text_my_newsletter; ?></h2>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $newsletter; ?>"><?php echo $text_newsletter; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<legend><?php echo $text_newsletter; ?></legend>]]></search>
+            <add position="before"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<input type="radio" name="newsletter" value="0" checked="checked" />]]></search>
+            <add position="after" offset="4"><![CDATA[-->]]></add>
+        </operation>
+    </file>
+
+</modification>
