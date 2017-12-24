@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Simple Contact Form</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>simple_contact_form</code>
+
+    <file path="catalog/view/theme/*/template/information/contact.tpl">
+        <operation error="skip">
+            <search><![CDATA[<legend><?php echo $text_contact; ?></legend>]]></search>
+            <add position="replace"><![CDATA[<legend><!--<?php echo $text_contact; ?>--></legend>]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<h3><?php echo $text_location; ?></h3>]]></search>
+            <add position="replace"><![CDATA[<!--<h3><?php echo $text_location; ?></h3>]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<h3><?php echo $text_location; ?></h3>]]></search>
+            <add position="replace"><![CDATA[<!--<h3><?php echo $text_location; ?></h3>]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<form action]]></search>
+            <add position="replace"><![CDATA[--><form action]]></add>
+        </operation>
+    </file>
+
+
+</modification>
+
+<!-- Rewrite Impairedspook's vQMod Version -->
