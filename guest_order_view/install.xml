@@ -1,9 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
 <modification>
-	<name>GuestOrderView</name>
-	<version>1.4</version>
-	<link>http://isenselabs.com</link>
+	<name>Guest Order View</name>
+	<version>1.4.x</version>
 	<author>iSenseLabs</author>
-	<code>isenselabs_guestorderview</code>
+	<link>http://isenselabs.com</link>
+	<code>guest_order_view</code>
 
 	<file path="catalog/language/*/module/account.php">
 		<operation>
