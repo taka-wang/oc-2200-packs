@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Sort By Zone ID</name>
+    <version>0.1</version>
+    <author>Taka Wang</author>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <code>SortByZoneID</code>
+	<file path="admin/model/localisation/zone.php">
+		<operation error="skip">
+			<search><![CDATA[$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone WHERE country_id = '" . (int)$country_id . "' AND status = '1' ORDER BY name");]]></search>
+			<add position="replace">
+				<![CDATA[$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone WHERE country_id = '" . (int)$country_id . "' AND status = '1' ORDER BY zone_id");]]>
+			</add>
+		</operation>
+	</file>
+	<file path="catalog/model/localisation/zone.php">
+		<operation error="skip">
+			<search><![CDATA[$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone WHERE country_id = '" . (int)$country_id . "' AND status = '1' ORDER BY name");]]></search>
+			<add position="replace">
+				<![CDATA[$query = $this->db->query("SELECT * FROM " . DB_PREFIX . "zone WHERE country_id = '" . (int)$country_id . "' AND status = '1' ORDER BY zone_id");]]>
+			</add>
+		</operation>
+	</file>
+</modification>
