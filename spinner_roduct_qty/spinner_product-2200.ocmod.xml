@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modification>
+    <name>Spinner Product</name>
+	<code>spinner_product_qty</code>
+	<version>2.0.0</version>
+	<vqmver></vqmver>
+	<link></link>
+	<author>GreekOC</author>
+	<date>2016.02.15</date>
+	
+	<file path="catalog/view/theme/*/template/product/product.tpl">
+        <operation>
+            <search><![CDATA[<?php echo $entry_qty; ?></label>]]></search>
+            <add position="after"><![CDATA[<div class="input-group number-spinner">
+			      <span class="input-group-btn">
+					<button class="btn btn-default" data-dir="dwn"><i class="fa fa-minus"></i></button>
+			      </span>
+				<input type="text" name="quantity" value="<?php echo $minimum; ?>" id="input-quantity" class="form-control text-center" />
+				  <span class="input-group-btn">
+					<button class="btn btn-default" data-dir="up"><i class="fa fa-plus"></i></button>
+				  </span>
+			    </div>]]></add>
+        </operation>
+		
+		<operation>
+            <search><![CDATA[<input type="text" name="quantity" value="<?php echo $minimum; ?>" size="2" id="input-quantity" class="form-control" />]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+		
+		<operation>
+            <search><![CDATA[<?php echo $footer; ?>]]></search>
+            <add position="before"><![CDATA[<script type="text/javascript"><!--
+$(document).on('click', '.number-spinner button', function () {    
+	var btn = $(this),
+		oldValue = btn.closest('.number-spinner').find('input').val().trim(),
+		newVal = 1;
+			
+	if (btn.attr('data-dir') == 'up') {
+		newVal = parseInt(oldValue) + 1;
+	} else {
+		if (oldValue > 1) {
+			newVal = parseInt(oldValue) - 1;
+		} else {
+			newVal = 1;
+		}
+	}
+	btn.closest('.number-spinner').find('input').val(newVal);
+});
+//--></script>]]></add>
+        </operation>
+    </file>
+	
+</modification>
