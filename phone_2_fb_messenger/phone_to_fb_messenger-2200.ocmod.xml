@@ -3,7 +3,7 @@
     <name>Phone to facebook messenger</name>
     <version>0.2</version>
     <author>Taka Wang</author>
-    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <link>https://github.com/taka-wang/oc-2200-packs/tree/master/phone_2_fb_messenger</link>
     <code>phone_to_fb_messenger</code>
     <file path="catalog/view/theme/*/template/common/header.tpl">
         <operation>
