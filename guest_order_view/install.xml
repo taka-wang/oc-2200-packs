@@ -6,12 +6,23 @@
 	<link>http://isenselabs.com</link>
 	<code>guest_order_view</code>
 
-	<file path="catalog/language/*/module/account.php">
+	<file path="catalog/language/en-gb/module/account.php">
 		<operation>
 			<search><![CDATA[$_['text_recurring']   = 'Recurring payments';]]></search>
 			<add position="after"><![CDATA[
 				// Guest Order View
 				$_['guest_order_view']  = 'Guest Order View';
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="catalog/language/zh-TW/module/account.php">
+		<operation>
+			<search><![CDATA[// Text]]></search>
+			<add position="before"><![CDATA[
+				// Guest Order View
+				$_['guest_order_view']  = '非會員訂單查詢';
+				
 			]]></add>
 		</operation>
 	</file>

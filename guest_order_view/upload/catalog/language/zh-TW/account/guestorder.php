@@ -1,6 +1,6 @@
 <?php
 // Guest Order View
-$_['guest_order_view']  		= '訂單查詢';
+$_['guest_order_view']  		= '非會員訂單查詢';
 $_['email_field']  				= 'Email:';
 $_['order_field']  				= '訂單號碼:';
 $_['view_order']   				= '查詢';
