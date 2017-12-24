@@ -4,7 +4,7 @@
     <version>0.1</version>
     <author>Taka Wang</author>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
-    <code>footer_addthis</code>
+    <code>https://github.com/taka-wang/oc-2200-packs/tree/master/footer_addthis</code>
   
     <file path="catalog/view/theme/*/template/common/footer.tpl">
         <operation error="skip">
@@ -17,3 +17,5 @@
 		</operation>
 	</file>
 </modification>
+
+<!-- Don't forget to change pid ra-5a3f4c3da47176fd  -->
