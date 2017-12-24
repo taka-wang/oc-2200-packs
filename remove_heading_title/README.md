@@ -1,6 +1,6 @@
 # Remove heading title
 
-This module remove heading titls from the following modules:
+This module remove heading titles from the following pages:
 
 - bestseller
 - featured
