@@ -2,7 +2,7 @@
 <modification>
 	<name>Remove Caption Description</name>
 	<version>0.1</version>
-	<link>https://github.com/taka-wang/oc-2200-packs</link>
+	<link>https://github.com/taka-wang/oc-2200-packs/tree/master/remove_caption_desc</link>
 	<author>Taka Wang</author>
 	<code>remove_caption_desc</code>
 
@@ -29,3 +29,5 @@
     </file>
 
 </modification>
+
+<!-- If your product's captions are too long, you should adjust 'min-heigh' to fit your layout -->
