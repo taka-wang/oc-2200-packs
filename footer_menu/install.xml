@@ -18,6 +18,7 @@
 		</operation>
 	</file>
 
+	<!-- Chinese Localization  -->
 	<file path="admin/language/zh-TW/common/menu.php">
 		<operation error="skip">
 			<search ><![CDATA[// Text]]></search>
@@ -35,7 +36,7 @@
 		<operation error="skip">
 			<search ><![CDATA[// Text]]></search>
 			<add position="after"><![CDATA[
-				// FooterMenu
+			// FooterMenu
 			$_['text_footertitle']                 = 'Footer title';
 			$_['text_footerlink']                  = 'Footer link';
 			$_['text_footermenu']                  = 'TMD Footer Menu';
@@ -43,11 +44,12 @@
 		</operation>
 	</file>
 
+	<!-- Chinese Localization  -->
 	<file path="admin/language/zh-TW/common/column_left.php">
 		<operation error="skip">
 			<search ><![CDATA[// Text]]></search>
 			<add position="after"><![CDATA[
-				// FooterMenu
+			// FooterMenu
 			$_['text_footertitle']                 = '頁尾大標題';
 			$_['text_footerlink']                  = '頁尾Link';
 			$_['text_footermenu']                  = ' Footer設計';
