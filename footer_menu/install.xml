@@ -1,0 +1,191 @@
+<modification>
+	<name>TMD Footer Module</name>
+	<version>2.2</version>
+	<code>#OFM07</code>
+	<author>TMD(opencartextensions.in)</author>
+	<link>http://opencartextensions.in/</link>
+	
+	<file path="admin/language/en-gb/common/menu.php">
+		<operation error="skip">
+			<search ><![CDATA[// Text]]></search>
+			<add position="after"><![CDATA[
+			// FooterMenu
+			$_['text_footertitle']                 = 'Footer title';
+			$_['text_footerlink']                  = 'Footer link';
+			$_['text_footermenu']                  = 'TMD Footer Menu';
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/language/zh-TW/common/menu.php">
+		<operation error="skip">
+			<search ><![CDATA[// Text]]></search>
+			<add position="after"><![CDATA[
+			// FooterMenu
+			$_['text_footertitle']                 = '頁尾大標題';
+			$_['text_footerlink']                  = '頁尾Link';
+			$_['text_footermenu']                  = ' Footer設計';
+			]]></add>
+		</operation>
+	</file>
+
+	
+	<file path="admin/language/en-gb/common/column_left.php">
+		<operation error="skip">
+			<search ><![CDATA[// Text]]></search>
+			<add position="after"><![CDATA[
+				// FooterMenu
+			$_['text_footertitle']                 = 'Footer title';
+			$_['text_footerlink']                  = 'Footer link';
+			$_['text_footermenu']                  = 'TMD Footer Menu';
+			]]></add>
+		</operation>
+	</file>
+
+	<file path="admin/language/zh-TW/common/column_left.php">
+		<operation error="skip">
+			<search ><![CDATA[// Text]]></search>
+			<add position="after"><![CDATA[
+				// FooterMenu
+			$_['text_footertitle']                 = '頁尾大標題';
+			$_['text_footerlink']                  = '頁尾Link';
+			$_['text_footermenu']                  = ' Footer設計';
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/controller/common/menu.php">
+		<operation error="skip">
+			<search ><![CDATA[$data['home'] = $this->url->link('common/dashboard', 'token=' . $this->session->data['token'], true);]]></search>
+			<add position="after"><![CDATA[
+			/////////FooterMenu 
+			$data['text_footermenu'] = $this->language->get('text_footermenu');
+			$data['text_footertitle'] = $this->language->get('text_footertitle'); 
+			$data['text_footerlink'] = $this->language->get('text_footerlink'); 
+			$data['footermenu'] = $this->url->link('catalog/footerlink', 'token=' . $this->session->data['token'], 'SSL');
+			$data['footertitle'] = $this->url->link('catalog/footertitle', 'token=' . $this->session->data['token'], 'SSL');
+			///////// FooterMenu
+			]]></add>
+		</operation>
+	</file>
+	
+	<file path="admin/view/template/common/menu.tpl">
+		<operation error="skip">
+			<search ><![CDATA[<li id="system"><a class="parent"><i class="fa fa-cog fa-fw"></i> <span><?php echo $text_system; ?></span></a>]]></search>
+			<add position="before"><![CDATA[<li><a class="parent"><i class="fa fa-share-alt fa-fw"></i><span><?php echo $text_footermenu; ?><span></a>
+	 <ul>
+	   <li><a href="<?php echo $footertitle; ?>"><?php echo $text_footertitle; ?></a></li>
+	   <li><a href="<?php echo $footermenu; ?>"><?php echo $text_footerlink; ?></a></li>
+	  </ul>
+  </li>]]></add>
+		</operation>
+	</file>	
+	
+	<file path="admin/controller/common/column_left.php">
+		<operation error="skip">
+			<search><![CDATA[// System]]></search>
+			<add position="before"><![CDATA[
+			/* TMD Custom Footer Menu */						
+			$customfooter = array();
+		
+			if ($this->user->hasPermission('access', 'catalog/footerlink')) {		
+				$customfooter[] = array(
+					'name'	   => $this->language->get('text_footerlink'),
+					'href'     => $this->url->link('catalog/footerlink', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);					
+			}	
+			
+			if ($this->user->hasPermission('access', 'catalog/footertitle')) {		
+				$customfooter[] = array(
+					'name'	   => $this->language->get('text_footertitle'),
+					'href'     => $this->url->link('catalog/footertitle', 'token=' . $this->session->data['token'], true),
+					'children' => array()		
+				);					
+			}	
+					
+			if ($customfooter) {					
+				$data['menus'][] = array(
+					'id'       => 'menu-customfooter',
+					'icon'	   => 'fa fa-share-alt fa-fw', 
+					'name'	   => $this->language->get('text_footermenu'),
+					'href'     => '',
+					'children' => $customfooter
+				);		
+			}
+			
+			/* TMD Custom Footer Menu */ ]]></add>
+		</operation>
+	</file>
+	
+	
+	<file path="catalog/controller/common/footer.php">
+		<operation>
+			<search ><![CDATA[return $this->load->view('common/footer', $data);]]></search>
+			<add position="before"><![CDATA[
+			///xml///
+			$this->load->model('catalog/information');
+			$data['footer_titles'] = $this->model_catalog_information->getFotterTitle();
+			///xml///
+			]]></add>
+		</operation>
+	</file>	
+	
+	<file path="catalog/model/catalog/information.php">
+		<operation>
+			<search ><![CDATA[public function getInformations() {]]></search>
+			<add position="before"><![CDATA[
+				public function getFotterTitle(){
+			$data=array();
+			$query =$this->db->query("SELECT ftd.title,ft.footertitle_id FROM " . DB_PREFIX . "footertitle ft LEFT JOIN " . DB_PREFIX . "footertitle_description ftd ON (ft.footertitle_id = ftd.footertitle_id) where ftd.language_id = '" . (int)$this->config->get('config_language_id') . "' and ft.status=1 order by ft.sort_order");
+
+			
+			
+			foreach($query->rows as $row){
+				$query2 = $this->db->query("SELECT * FROM " . DB_PREFIX . "footerlink f LEFT JOIN " . DB_PREFIX . "footerlink_description fd ON (f.footerlink_id = fd.footerlink_id) where fd.language_id = '" . (int)$this->config->get('config_language_id') . "' and f.status=1 and f.selectheading='".$row['footertitle_id']."' order by f.sort_order");
+				$subtitle=array();
+				foreach($query2->rows as $row2){
+					$subtitle[]=array('title' => $row2['title'], 'link' =>$row2['link']);
+				}
+				
+				$data[]=array(
+					'title' => $row['title'],
+					'sub_title' => $subtitle
+				);
+			}
+			
+			return $data;
+		}]]></add>
+		</operation>
+	</file>	
+	
+	<file path="catalog/view/theme/*/template/common/footer.tpl">
+		<operation>
+			<search ><![CDATA[<div class="row">]]></search>
+			<add position="after"><![CDATA[<?php if($footer_titles) { foreach($footer_titles as $footer_title){?>  
+		  <div class="col-sm-3" style="min-height:125px;">
+			<h5><?php echo $footer_title['title']; ?></h5>
+			<?php if($footer_title['sub_title']){?>
+			<ul class="list-unstyled">
+				<?php foreach($footer_title['sub_title'] as $subtitle){ if(isset($subtitle['href'])){?>		
+				<li><a href="<?php echo $subtitle['href']; ?>"><?php echo $subtitle['title']; ?></a></li>
+				<?php }else{?>
+				<li><a href="<?php echo $subtitle['link']?>"><?php echo $subtitle['title']; ?></a></li>
+				<?php } }?>
+			</ul>
+			<?php }?>
+		  </div>
+		  <?php } }?>
+		  
+		<div style="display:none">
+		<hr>
+		]]></add>
+		</operation>
+		<operation>
+			<search ><![CDATA[<p><?php echo $powered; ?></p> ]]></search>
+			<add position="replace"><![CDATA[</div>
+    <hr>
+    <p><?php echo $powered; ?></p>]]></add>
+		</operation>
+	</file>	
+</modification>
