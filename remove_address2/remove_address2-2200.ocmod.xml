@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove Address2 Field</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_address2_fields</code>
+
+    <!-- Account -->
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/address_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+
+    <!-- Affiliate -->
+    <file path="catalog/view/theme/*/template/affiliate/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+
+    <!-- Checkout -->
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest_shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/payment_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_address_2; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="address_2" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/checkout.tpl">
+        <operation error="skip">
+            <search><![CDATA[data: $('#collapse-shipping-address input[type=\'text\']]]></search>
+            <add position="after"><![CDATA[data: $('#collapse-shipping-address input[type=\'text\'], #collapse-shipping-address input[type=\'hidden\'], #collapse-shipping-address input[type=\'date\'], #collapse-shipping-address input[type=\'datetime-local\'], #collapse-shipping-address input[type=\'time\'], #collapse-shipping-address input[type=\'password\'], #collapse-shipping-address input[type=\'checkbox\']:checked, #collapse-shipping-address input[type=\'radio\']:checked, #collapse-shipping-address textarea, #collapse-shipping-address select'),]]></add>
+        </operation>
+    </file>
+
+</modification>
