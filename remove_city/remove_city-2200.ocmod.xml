@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove City Fields</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_city_field</code>
+
+    <!-- controller -->
+    <file path="admin/controller/customer/customer.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['city']]]></search>
+            <add position="replace"><![CDATA[//$this->error['address'][$key]['city']]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/marketing/affiliate.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/shipping/ups.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/address.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/affiliate/edit.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/affiliate/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$this->error['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/payment.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/guest_shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/guest.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/payment_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/register.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/shipping_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
+            <add position="replace"><![CDATA[//$json['error']['city'] = $this->language->get('error_city');]]></add>
+        </operation>
+    </file>
+
+    <!-- view -->
+    <file path="catalog/view/theme/*/template/checkout/guest_shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/payment_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/customer/customer_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="address" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/marketing/affiliate_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/sale/order_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/address_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_city; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="city" value="" />]]></add>
+        </operation>
+    </file>
+</modification>

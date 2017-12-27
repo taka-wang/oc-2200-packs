@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove Download</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_download</code>
+
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[<!--<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>-->]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/account.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[<!--<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>-->]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/common/menu.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[<!--<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>-->]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/information/sitemap.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>]]></search>
+            <add position="replace"><![CDATA[<!--<li><a href="<?php echo $download; ?>"><?php echo $text_download; ?></a></li>-->]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/module/account.tpl">
+        <operation error="skip">
+            <search><![CDATA[<a href="<?php echo $download; ?>" class="list-group-item"><?php echo]]></search>
+            <add position="replace"><![CDATA[<!--<a href="<?php echo $download; ?>" class="list-group-item"><?php echo]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$text_download; ?>]]></search>
+            <add position="replace"><![CDATA[$text_download; ?>-->]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/download.php">
+        <operation error="skip">
+            <search><![CDATA[if (!$this->customer->isLogged()) {]]></search>
+            <add position="before"><![CDATA[$this->response->redirect($this->url->link('account/account', '', 'SSL'));]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/catalog/product_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_download; ?></span></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_download; ?></span></label>]]></search>
+            <add position="after" offset="11"><![CDATA[--><input type="hidden" name="download" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/language/zh-TW/checkout/success.php">
+        <operation error="skip">
+            <search><![CDATA[<p>如果您的購買有相關的下載，您可以到 <a href="%s">下載頁面</a> 下載。</p>]]></search>
+            <add position="replace"><![CDATA[<!--<p>如果您的購買有相關的下載，您可以到 <a href="%s">下載頁面</a> 下載。</p>-->]]></add>
+        </operation>
+    </file>
+
+</modification>
