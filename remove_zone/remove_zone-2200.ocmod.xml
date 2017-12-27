@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove Zone Fields</name>
+    <version>0.2</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_zone_field</code>
+
+    <!-- controller -->
+        <!-- admin -->
+    <file path="admin/controller/customer/customer.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/marketing/affiliate.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- account -->
+    <file path="catalog/controller/account/address.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/controller/affiliate/edit.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/affiliate/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- api -->
+    <file path="catalog/controller/api/payment.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['zone_id'        => $this->request->post['zone_id'],]]></search>
+            <add position="replace"><![CDATA[//'zone_id'        => $this->request->post['zone_id'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['zone_id'        => $this->request->post['zone_id'],]]></search>
+            <add position="replace"><![CDATA[//'zone_id'        => $this->request->post['zone_id'],]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/controller/checkout/guest_shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/checkout/guest.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3, 4-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['payment_address']['zone_id'] = $this->request->post['zone_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['payment_address']['zone_id'] = $this->request->post['zone_id'];]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['zone_id'] = $this->request->post['zone_id'];]]></add>
+        </operation>
+    </file>
+
+    <file path="catalog/controller/checkout/payment_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/register.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/shipping_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/total/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['zone'] = $this->language->get('error_zone');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+
+    <!-- view -->
+        <!-- admin -->
+    <file path="admin/view/template/customer/customer_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="address[<?php echo $address_row; ?>][zone_id]" id="input-zone<?php echo $address_row; ?>" class="form-control" style="display:none" ></select>]]></add>
+        </operation>
+    <!--note js-->
+        <operation error="skip">
+            <search><![CDATA[for="input-zone' + address_row + '"><?php echo $entry_zone; ?>]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[for="input-zone' + address_row + '"><?php echo $entry_zone; ?>]]></search>
+            <add position="after" offset="2"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/marketing/affiliate_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control"  style="display:none" ></select>]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/sale/order_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-payment-zone" class="form-control" style="display:none" >  </select>]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/setting/setting.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="config_zone_id" id="input-zone" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/setting/store_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="config_zone_id" id="input-zone" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+        <!-- account -->
+    <file path="catalog/view/theme/*/template/account/address_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/view/theme/*/template/affiliate/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="8"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/view/theme/*/template/checkout/guest_shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-shipping-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="3"><![CDATA[--><select name="zone_id" id="input-payment-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/payment_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-payment-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="3"><![CDATA[--><select name="zone_id" id="input-payment-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-shipping-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+<!-- note country,zone -->
+    <file path="catalog/view/theme/*/template/total/shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-zone" class="form-control" style="display:none"></select>]]></add>
+        </operation>
+    </file>
+
+</modification>
