@@ -12,7 +12,7 @@ $_['text_success']       = '成功： 帳號資訊已更新。';
 $_['entry_firstname']    = '名字';
 $_['entry_lastname']     = '姓氏';
 $_['entry_email']        = 'Email';
-$_['entry_telephone']    = '連絡電話';
+$_['entry_telephone']    = '連絡手機';
 $_['entry_fax']          = '傳真號碼';
 
 // Error

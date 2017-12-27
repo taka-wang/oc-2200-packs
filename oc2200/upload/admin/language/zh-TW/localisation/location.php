@@ -35,4 +35,4 @@ $_['help_comment']     = '此欄位可備註任何你想告訴顧客的話，例
 $_['error_permission'] = '警告：您沒有權限修改商店地址！';
 $_['error_name']       = '商店名稱必須至少為1個字！';
 $_['error_address']    = '地址必須是3和128字之間！';
-$_['error_telephone']  = '連絡電話必須是3到32個字之間！';
+$_['error_telephone']  = '連絡手機必須是3到32個字之間！';

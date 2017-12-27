@@ -20,7 +20,7 @@ $_['text_agree']                = '我已經閱讀並同意 <a href="%s" class="
 $_['entry_firstname']           = '名字';
 $_['entry_lastname']            = '姓氏';
 $_['entry_email']               = 'Email 信箱';
-$_['entry_telephone']           = '連絡電話';
+$_['entry_telephone']           = '連絡手機';
 $_['entry_fax']                 = '傳真號碼';
 $_['entry_company']             = '公司名稱';
 $_['entry_website']             = '公司網站';
