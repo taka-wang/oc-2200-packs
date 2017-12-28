@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove Country Fields</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_country_field</code>
+
+    <!-- controller -->
+        <!-- admin -->
+    <file path="admin/controller/customer/customer.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/marketing/affiliate.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/shipping/ups.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- account -->
+    <file path="catalog/controller/account/address.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/controller/affiliate/edit.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/affiliate/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- api -->
+    <file path="catalog/controller/api/payment.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['country_id'     => $this->request->post['country_id'],]]></search>
+            <add position="replace"><![CDATA[//'country_id'     => $this->request->post['country_id'],]]></add>
+        </operation>
+    </file>  
+    <file path="catalog/controller/api/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['country_id'     => $this->request->post['country_id'],]]></search>
+            <add position="replace"><![CDATA[//'country_id'     => $this->request->post['country_id'],]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/controller/checkout/guest_shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/guest.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3, 4-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['payment_address']['zone_id'] = $this->request->post['zone_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['payment_address']['country_id'] = $this->request->post['country_id'];]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['country_id'] = $this->request->post['country_id'];]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/payment_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/register.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/shipping_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/total/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+
+    <!-- view -->
+        <!-- admin -->
+    <file path="admin/view/template/customer/customer_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="address[<?php echo $address_row; ?>][country_id]" id="input-country<?php echo $address_row; ?>" onchange="country(this, '<?php echo $address_row; ?>', '<?php echo $address['zone_id']; ?>');" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    <!--note js-->
+        <operation error="skip">
+            <search><![CDATA[for="input-country' + address_row + '"><?php echo $entry_country; ?>]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[for="input-country' + address_row + '"><?php echo $entry_country; ?>]]></search>
+            <add position="after" offset="7"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/marketing/affiliate_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/sale/order_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-payment-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/setting/setting.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="12"><![CDATA[--><select name="config_country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/setting/store_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="12"><![CDATA[--><select name="config_country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>          
+        <!-- account -->
+    <file path="catalog/view/theme/*/template/account/address_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/view/theme/*/template/affiliate/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/view/theme/*/template/checkout/guest_shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-shipping-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="11"><![CDATA[--><select name="country_id" id="input-payment-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/payment_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-payment-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="11"><![CDATA[--><select name="country_id" id="input-payment-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-shipping-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+<!-- note country,zone -->
+    <file path="catalog/view/theme/*/template/total/shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
+        </operation>
+    </file>
+
+</modification>
