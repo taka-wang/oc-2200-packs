@@ -1,0 +1,427 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove LastName Fields</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_lastname_field</code>
+
+    <!-- controller -->
+        <!-- admin -->
+    <file path="admin/controller/customer/customer.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['address'][$key]['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!-- note -->
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/controller/marketing/affiliate.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <!-- note -->
+    <file path="admin/controller/sale/return.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <!-- note -->
+    <file path="admin/controller/user/user.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- account -->
+    <file path="catalog/controller/account/address.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <!-- note -->
+    <file path="catalog/controller/account/edit.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/account/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <!-- note -->
+    <file path="catalog/controller/account/return.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/controller/affiliate/edit.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/affiliate/register.php">
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+        <!-- api -->
+    <file path="catalog/controller/api/customer.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['lastname'          => $this->request->post['lastname'],]]></search>
+            <add position="replace"><![CDATA[//'lastname'          => $this->request->post['lastname'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/payment.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['lastname'       => $this->request->post['lastname'],]]></search>
+            <add position="replace"><![CDATA[//'lastname'       => $this->request->post['lastname'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA['lastname'       => $this->request->post['lastname'],]]></search>
+            <add position="replace"><![CDATA[//'lastname'       => $this->request->post['lastname'],]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/controller/checkout/guest_shipping.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/guest.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+        <!--note 3, 4, 5-->
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['guest']['lastname'] = $this->request->post['lastname'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['guest']['lastname'] = $this->request->post['lastname'];]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['payment_address']['lastname'] = $this->request->post['lastname'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['payment_address']['lastname'] = $this->request->post['lastname'];]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];]]></search>
+            <add position="replace"><![CDATA[//$this->session->data['shipping_address']['lastname'] = $this->request->post['lastname'];]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/payment_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/register.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/shipping_address.php">
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$json['error']['lastname'] = $this->language->get('error_lastname');]]></search>
+            <add position="after" offset="1"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+
+    <!-- view -->
+        <!-- admin -->
+    <file path="admin/view/template/customer/customer_form.tpl">
+        <!-- note -->
+        <operation error="skip">
+            <search><![CDATA[for="input-lastname"><?php echo $entry_lastname; ?>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[for="input-lastname"><?php echo $entry_lastname; ?>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $address_row; ?>"><?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="address[<?php echo $address_row; ?>][lastname]" value="<?php echo $address['lastname']; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname<?php echo $address_row; ?>" class="form-control" />]]></add>
+        </operation>
+        <!--note js-->
+        <operation error="skip">
+            <search><![CDATA[for="input-lastname' + address_row + '"><?php echo $entry_lastname; ?>]]></search>
+            <add position="before" offset="1"><![CDATA[/*]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[for="input-lastname' + address_row + '"><?php echo $entry_lastname; ?>]]></search>
+            <add position="after" offset="2"><![CDATA[*/]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/marketing/affiliate_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/sale/order_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="lastname" value="" />]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/sale/return_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="admin/view/template/user/user_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+        <!-- account -->
+    <file path="catalog/view/theme/*/template/account/address_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/account/return_form.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+        <!-- affiliate -->
+    <file path="catalog/view/theme/*/template/affiliate/edit.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/affiliate/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+        <!-- checkout -->
+    <file path="catalog/view/theme/*/template/checkout/guest_shipping.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/guest.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/payment_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="lastname" value="" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/register.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="2"><![CDATA[--><input type="hidden" name="lastname" value="" placeholder="<?php echo $entry_lastname; ?>" id="input-payment-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+    <file path="catalog/view/theme/*/template/checkout/shipping_address.tpl">
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="before" offset="1"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
+            <add position="after" offset="4"><![CDATA[--><input type="hidden" name="lastname" value="" placeholder="<?php echo $entry_lastname; ?>" id="input-shipping-lastname" class="form-control" />]]></add>
+        </operation>
+    </file>
+
+
+</modification>
