@@ -217,7 +217,7 @@
         </operation>
         <operation error="skip">
             <search><![CDATA[<?php echo $entry_zone; ?></label>]]></search>
-            <add position="after" offset="5"><![CDATA[--><select name="zone_id" id="input-payment-zone" class="form-control" style="display:none" >  </select>]]></add>
+            <add position="after" offset="5"><![CDATA[--><select name="zone_id" style="display:none" >  </select>]]></add>
         </operation>
     </file>
     <file path="admin/view/template/setting/setting.tpl">

@@ -225,7 +225,7 @@
         </operation>
         <operation error="skip">
             <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
-            <add position="after" offset="13"><![CDATA[--><select name="country_id" id="input-payment-country" class="form-control" style="display:none"> </select>]]></add>
+            <add position="after" offset="13"><![CDATA[--><select name="country_id" style="display:none"> </select>]]></add>
         </operation>
     </file>
 
