@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove Phone</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_newsletter</code>
+
+    <file path="catalog/view/theme/*/template/common/header.tpl">
+        <operation error="skip">
+            <search><![CDATA[<li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>]]></search>
+            <add position="replace"><![CDATA[<!--<li><a href="<?php echo $contact; ?>"><i class="fa fa-phone"></i></a> <span class="hidden-xs hidden-sm hidden-md"><?php echo $telephone; ?></span></li>-->]]></add>
+        </operation>
+    </file>
+
+</modification>
