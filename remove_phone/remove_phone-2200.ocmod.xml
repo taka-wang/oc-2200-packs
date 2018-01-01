@@ -4,7 +4,7 @@
     <version>0.1</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
-    <code>remove_newsletter</code>
+    <code>remove_phone</code>
 
     <file path="catalog/view/theme/*/template/common/header.tpl">
         <operation error="skip">
