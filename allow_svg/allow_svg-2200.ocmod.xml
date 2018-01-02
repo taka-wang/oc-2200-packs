@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Allow SVG Upload</name>
+    <version>0.2</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>allow_svg_upload</code>
+
+    <file path="admin/controller/common/filemanager.php">
+        <operation error="skip">
+            <search><![CDATA[jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF]]></search>
+            <add position="replace"><![CDATA[jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF,svg,SVG]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA['jpg',]]></search>
+            <add position="after"><![CDATA['svg',]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA['image/jpeg',]]></search>
+            <add position="after"><![CDATA['image/svg+xml',]]></add>
+        </operation>
+    </file>
+    <file path="admin/model/tool/image.php">
+        <operation error="skip">
+            <search><![CDATA[$extension = pathinfo($filename, PATHINFO_EXTENSION);]]></search>
+            <add position="after"><![CDATA[
+            if('svg' == $extension) {
+                if ($this->request->server['HTTPS']) {
+                    return HTTPS_CATALOG . 'image/' . $filename;
+                } else {
+                    return HTTP_CATALOG . 'image/' . $filename;
+                }
+            }
+            ]]></add>
+        </operation>
+    </file>
+    
+</modification>
