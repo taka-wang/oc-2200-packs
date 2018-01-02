@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove World Map</name>
+    <version>0.2</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_world_map</code>
+
+    <file path="admin/view/template/common/dashboard.tpl">
+        <operation error="skip">
+            <search><![CDATA[<div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $map; ?></div>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<div class="col-lg-6 col-md-12 col-sx-12 col-sm-12"><?php echo $chart; ?></div>]]></search>
+            <add position="replace"><![CDATA[<div class="col-lg-12 col-md-12 col-sx-12 col-sm-12"><?php echo $chart; ?></div>]]></add>
+        </operation>
+    </file>
+</modification>
