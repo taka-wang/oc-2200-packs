@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Remove LastName Fields</name>
-    <version>0.1</version>
+    <version>0.2</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
     <code>remove_lastname_field</code>
@@ -39,17 +39,6 @@
     </file>
     <!-- note -->
     <file path="admin/controller/sale/return.php">
-        <operation error="skip">
-            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
-            <add position="before" offset="1"><![CDATA[/*]]></add>
-        </operation>
-        <operation error="skip">
-            <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
-            <add position="after" offset="1"><![CDATA[*/]]></add>
-        </operation>
-    </file>
-    <!-- note -->
-    <file path="admin/controller/user/user.php">
         <operation error="skip">
             <search><![CDATA[$this->error['lastname'] = $this->language->get('error_lastname');]]></search>
             <add position="before" offset="1"><![CDATA[/*]]></add>
@@ -290,16 +279,6 @@
         </operation>
     </file>
     <file path="admin/view/template/sale/return_form.tpl">
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
-            <add position="before" offset="1"><![CDATA[<!--]]></add>
-        </operation>
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
-            <add position="after" offset="7"><![CDATA[--><input type="hidden" name="lastname" value="<?php echo $lastname; ?>" placeholder="<?php echo $entry_lastname; ?>" id="input-lastname" class="form-control" />]]></add>
-        </operation>
-    </file>
-    <file path="admin/view/template/user/user_form.tpl">
         <operation error="skip">
             <search><![CDATA[<?php echo $entry_lastname; ?></label>]]></search>
             <add position="before" offset="1"><![CDATA[<!--]]></add>
