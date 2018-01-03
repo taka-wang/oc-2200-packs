@@ -19,7 +19,7 @@
             <add position="after"><![CDATA[
     <!-- [Begin] stick_cart_to_the_top -->
     <style type="text/css">
-        @media (max-width: 768px) {
+        @media (max-width: 767px) {
             .fixed-header {
                 background: none repeat scroll 0 0 #f5f5f5;
                 padding: 15px 0 0 0;
