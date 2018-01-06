@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
 	<name>Remove wishlist and compare buttons</name>
-	<version>0.2</version>
+	<version>0.3</version>
 	<link>https://github.com/taka-wang/oc-2200-packs</link>
 	<author>Taka Wang</author>
 	<code>remove_wishlist_compare</code>
@@ -82,6 +82,14 @@
 		</operation>
       	<operation error="skip">
 			<search><![CDATA[<button type="button" data-toggle="tooltip" class="btn btn-default" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product_id; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
+			<add position="replace"><![CDATA[]]></add>
+		</operation>
+		<operation error="skip">
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_wishlist; ?>" onclick="wishlist.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-heart"></i></button>]]></search>
+			<add position="replace"><![CDATA[]]></add>
+		</operation>
+      	<operation error="skip">
+			<search><![CDATA[<button type="button" data-toggle="tooltip" title="<?php echo $button_compare; ?>" onclick="compare.add('<?php echo $product['product_id']; ?>');"><i class="fa fa-exchange"></i></button>]]></search>
 			<add position="replace"><![CDATA[]]></add>
 		</operation>
 	</file>
