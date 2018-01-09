@@ -578,7 +578,7 @@ $_['d_quickcheckout_setting'] = array(
 				'sort_order' => 7,
 				'column' => 4,
 				'row' => 2,
-				'default_payment_popup' => 0,
+				'default_payment_popup' => 1, // important!
 				'payment_popups' => array(),
 				'width' => '50'
 			),
