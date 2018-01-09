@@ -30,7 +30,7 @@ qc.ShippingMethodView = qc.View.extend({
 	},
 
 	update: function(data){
-		console.log('shipping_method:render');
+		//console.log('shipping_method:render');
 		if(data.shipping_method){
 			this.model.set('shipping_method', data.shipping_method);
 

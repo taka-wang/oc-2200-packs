@@ -4,7 +4,7 @@
 	initialize: function(){
         
         
-		console.log("Engine View start");
+		//console.log("Engine View start");
 		//qc.event.bind("changeAccount", this.changeAccount, this);
 	},
 

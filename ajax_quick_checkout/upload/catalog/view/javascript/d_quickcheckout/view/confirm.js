@@ -18,7 +18,7 @@ qc.ConfirmView = qc.View.extend({
 	forceConfirm: function(){
 		var that = this;
 		if(qc.confirmOrderVar == 1){
-  			console.log('qc.confirmOrderVar = '+ qc.confirmOrderVar)
+  			//console.log('qc.confirmOrderVar = '+ qc.confirmOrderVar)
 			that.confirm();
 		}
 	},
@@ -83,7 +83,7 @@ qc.ConfirmView = qc.View.extend({
 	},
 
 	paymentConfirm: function(){
-		console.log('confirm:paymentConfirm');
+		//console.log('confirm:paymentConfirm');
 		preloaderStart();
 		$(document).ajaxStop(function() {
 			preloaderStop();
@@ -127,7 +127,7 @@ qc.ConfirmView = qc.View.extend({
 
 	render: function(){
 		this.focusedElementId = $(':focus').attr('id');
-		console.log('confirm:render');
+		//console.log('confirm:render');
 		$(this.el).html(this.template({'model': this.model.toJSON()}));
 		this.fields = new qc.FieldView({el:$("#confirm_form"), model: this.model, template: _.template($("#field_template").html())});
 		this.fields.render();

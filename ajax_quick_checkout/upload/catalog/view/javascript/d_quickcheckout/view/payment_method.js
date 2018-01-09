@@ -49,7 +49,7 @@ qc.PaymentMethodView = qc.View.extend({
 
 	render: function(){
 		this.focusedElementId = $(':focus').attr('id');
-		console.log('payment_method:render');
+		//console.log('payment_method:render');
 		$(this.el).html(this.template({'model': this.model.toJSON()}));
 		$('img').error(function(){
 			$(this).hide();

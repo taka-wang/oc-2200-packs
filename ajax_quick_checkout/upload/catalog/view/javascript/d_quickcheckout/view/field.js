@@ -32,7 +32,7 @@ qc.FieldView = qc.View.extend({
 
     render: function(){
 
-        console.log('field:render');
+        //console.log('field:render');
         this.setValidate();
         $(this.el).html(this.template({'model': this.model.toJSON() }));
         this.setDateTime();
@@ -117,7 +117,7 @@ qc.FieldView = qc.View.extend({
             if ($.trim($(e.currentTarget).val())) {
                 if ($(e.currentTarget).intlTelInput("isValidNumber")) {
                     $(e.currentTarget).val($(e.currentTarget).intlTelInput("getNumber"));
-                    console.log($(e.currentTarget).intlTelInput("getNumber"))
+                    //console.log($(e.currentTarget).intlTelInput("getNumber"))
                     this.updateField(e);
                 } else {
                     $(e.currentTarget).val('');

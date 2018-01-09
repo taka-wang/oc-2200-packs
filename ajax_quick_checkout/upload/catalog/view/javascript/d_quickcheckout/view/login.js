@@ -16,7 +16,7 @@ qc.LoginView = qc.View.extend({
 
 	render: function(){
 		this.focusedElementId = $(':focus').attr('id');
-		console.log('login:render');
+		//console.log('login:render');
 		$(this.el).html(this.template({'model' : this.model.toJSON() } ));
 		$('body').on('click', function(){
 			$('#login_button_popup').removeClass('active');

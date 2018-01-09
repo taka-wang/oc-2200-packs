@@ -2,7 +2,7 @@ qc.Model = Backbone.NestedModel.extend({
 	defaults: '',
 
 	initialize: function(){
-		console.log("Engine Model start");
+		//console.log("Engine Model start");
 	},
 
 	isJson: function(str) {
@@ -19,7 +19,7 @@ qc.Model = Backbone.NestedModel.extend({
 		preloaderStop();
 
 		if(parseInt(config.general.debug)){
-			console.log(data);
+			//console.log(data);
 		}
 
 		qc.event.trigger('update', data);

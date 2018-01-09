@@ -44,19 +44,22 @@ qc.PaymentAddress = qc.Model.extend({
     
     },
     validate: function(attrs,options){
+        return false;
+        /*
         var errors = [];
         if(typeof(this.get('payment_address.'+options.key)) !== 'undefined' && this.get('payment_address.'+options.key).length > 0 && typeof(attrs.payment_address[options.key]) !== 'undefined' && attrs.payment_address[options.key].length == 0){
             console.log('trying to set an empty value key:'+ options.key +"value "+ this.get('payment_address.'+options.key));
             errors.push({filed:'payment_address',key:options.key,value:this.get('payment_address.'+options.key)});
             return errors.length > 0 ? errors : false;
         }
+        */
 
 
     },
     handleError:function (model,error){
         var that = this;
         _.each(error,function(element){
-            console.log('write an old value');
+            //console.log('write an old value');
             that.model.set(element.field + "." + element.key,element.value);
         });
     }

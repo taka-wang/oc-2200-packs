@@ -2,7 +2,7 @@ qc.Field = qc.Model.extend({
 	defaults: '',
 
 	initialize: function(){
-		console.log("Field");
+		//console.log("Field");
 	},
 
 	getFields: function() {

@@ -55,7 +55,7 @@ qc.PaymentAddressView = qc.View.extend({
     },
 
     update: function(data){
-        console.log('payment_address:render');
+        //console.log('payment_address:render');
         var render_state = false;
         
 
@@ -109,7 +109,7 @@ qc.PaymentAddressView = qc.View.extend({
 
     render: function(){
         this.focusedElementId = $(':focus').attr('id');
-        console.log('payment_address:render');
+        //console.log('payment_address:render');
         $(this.el).html(this.template({'model': this.model.toJSON()}));
         this.fields = $.extend(true, {}, new qc.FieldView({el:$("#payment_address_form"), model: this.model, template: _.template($("#field_template").html())}));
         this.fields.render();
@@ -119,7 +119,7 @@ qc.PaymentAddressView = qc.View.extend({
     },
 
     zoneDelay: function(){
-        console.log("payment_address:zone_delay");
+        //console.log("payment_address:zone_delay");
         $("#payment_address_shipping_address").attr("disabled", true);
     }
 });

@@ -55,7 +55,7 @@ qc.ShippingAddressView = qc.View.extend({
 	},
 
 	update: function(data){
-		console.log('shipping_address:render');
+		//console.log('shipping_address:render');
 		var render_state = false;
 	
 		if(typeof(data.show_shipping_address) !== 'undefined' && data.show_shipping_address !== this.model.get('show_shipping_address')){
@@ -94,7 +94,7 @@ qc.ShippingAddressView = qc.View.extend({
 
 	render: function(){
 		this.focusedElementId = $(':focus').attr('id');
-		console.log('shipping_address:render');
+		//console.log('shipping_address:render');
 		$(this.el).html(this.template({'model': this.model.toJSON()}));
 		this.fields = $.extend(true, {}, new qc.FieldView({el:$("#shipping_address_form"), model: this.model, template: _.template($("#field_template").html())}));
 		this.fields.render();
