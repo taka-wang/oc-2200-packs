@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Remove Country Fields</name>
-    <version>0.1</version>
+    <version>0.2</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
     <code>remove_country_field</code>
@@ -229,16 +229,6 @@
         </operation>
     </file>
 
-    <file path="admin/view/template/setting/setting.tpl">
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
-            <add position="before" offset="1"><![CDATA[<!--]]></add>
-        </operation>
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
-            <add position="after" offset="12"><![CDATA[--><select name="config_country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
-        </operation>
-    </file>
     <file path="admin/view/template/setting/store_form.tpl">
         <operation error="skip">
             <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
