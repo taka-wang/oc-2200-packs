@@ -72,13 +72,13 @@
 						<td class="qc-quantity <%= parseInt(model.config.columns.quantity) ? '' : 'hidden' %>">
 							<div class="input-group input-group-sm">
 								<span class="input-group-btn">
-									<button class="btn btn-primary decrease hidden-xs" data-product="<%= product.key %>"><i class="fa fa-chevron-down"></i></button>
+									<button class="btn btn-primary decrease " data-product="<%= product.key %>"><i class="fa fa-chevron-down"></i></button>
 								</span>            
 								<input type="text" data-mask="9?999999999999999" value="<%= product.quantity %>" class="qc-product-qantity form-control text-center" name="cart.<%= product.key %>"  data-refresh="2"/>
 								<span class="input-group-btn">
-									<button class="btn btn-primary increase hidden-xs" data-product="<%= product.key %>"><i class="fa fa-chevron-up"></i></button>
+									<button class="btn btn-primary increase " data-product="<%= product.key %>"><i class="fa fa-chevron-up"></i></button>
 								
-									<button class="btn btn-danger delete hidden-xs" data-product="<%= product.key %>"><i class="fa fa-times"></i></button>
+									<button class="btn btn-danger delete " data-product="<%= product.key %>"><i class="fa fa-times"></i></button>
 								</span>
 							</div>
 						</td>
