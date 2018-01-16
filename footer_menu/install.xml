@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
 	<name>TMD Footer Module</name>
-	<version>2.2</version>
+	<version>2.2.x</version>
 	<code>#OFM07</code>
 	<author>TMD(opencartextensions.in)</author>
 	<link>http://opencartextensions.in/</link>
@@ -181,7 +181,7 @@
 		  <?php } }?>
 		  
 		<div style="display:none">
-		<hr>
+
 		]]></add>
 		</operation>
 		<operation>
