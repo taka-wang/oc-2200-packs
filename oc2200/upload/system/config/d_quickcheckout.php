@@ -24,7 +24,7 @@ $_['d_quickcheckout_setting'] = array(
 		'update_mini_cart' => 1,
 	),
 	'design' => array(
-		'theme' => 'default',			// blue, dark, green, red, seablue, yellow
+		'theme' => 'red',				// blue, dark, green, red, seablue, yellow
 		'column_width' => array(1 => '4', 2 => '4', 3 => '4', 4 => '8'),							
 		'login_style' => 'popup',		// block, popup
 		'address_style' => 'radio',		// radio, list
@@ -591,6 +591,18 @@ $_['d_quickcheckout_setting'] = array(
 				'row' => 2,
 				'width' => '50',
 				'fields' => array(
+					'delivery_date' => array(
+						'id' => 'delivery_date',
+						'title' => 'text_delivery_date',
+						'tooltip' => '',
+						'error' => array(0 => array('min_length' => 1,
+												 'text' => 'error_step_confirm_fields_delivery_date')),
+						'type' => 'date',
+						'refresh' => '0',
+						'custom' => 0,
+						'class' => '',
+						'sort_order' => 0,
+					),
 					'comment' => array(
 							'id' => 'comment',
 							'title' => 'text_comments',
@@ -601,7 +613,7 @@ $_['d_quickcheckout_setting'] = array(
 							'refresh' => '0',
 							'custom' => 0,
 							'class' => '',
-							'sort_order' => 0,
+							'sort_order' => 1,
 					),
 					'agree' => array(
 							'id' => 'agree',
@@ -617,7 +629,7 @@ $_['d_quickcheckout_setting'] = array(
 							'value' => 0, 
 							'custom' => 0,
 							'class' => '',
-							'sort_order' => 1,
+							'sort_order' => 2,
 					)
 					
 					
@@ -801,11 +813,11 @@ $_['d_quickcheckout_setting'] = array(
 					  'display' => 1,
 					  'option' => array(
 							'voucher' => array(
-										'display' => 0,
+										'display' => 1,
 										 'value' => ''	
 							),
 							'coupon' => array(
-										'display' => 0,
+										'display' => 1,
 										 'value' => ''	
 							),
 							'reward' => array(
@@ -825,6 +837,11 @@ $_['d_quickcheckout_setting'] = array(
 			'confirm' => array(
 					  'display' => 1,
 					  'fields' => array(
+							'delivery_date' => array( 
+								'display' => 1, 
+								'require' => 1,
+								'value' => ''	
+							),
 					  		'comment' => array( 
 								 'display' => 1, 
 								 'require' => 0,
@@ -997,11 +1014,11 @@ $_['d_quickcheckout_setting'] = array(
 					  'display' => 1,
 					  'option' => array(
 							'voucher' => array(
-										'display' => 0,
+										'display' => 1,
 										 'value' => ''
 							),
 							'coupon' => array(
-										'display' => 0,
+										'display' => 1,
 										 'value' => ''
 							),
 							'reward' => array(
@@ -1021,14 +1038,19 @@ $_['d_quickcheckout_setting'] = array(
 			'confirm' => array(
 					  'display' => 1,
 					  'fields' => array(
+							'delivery_date' => array( 
+								'display' => 1, 
+								'require' => 1,
+								'value' => ''	
+							),
 					  		'comment' => array( 
 								 'display' => 1, 
 								 'require' => 0,
 								 'value' => ''	
 							 ),
 							'agree' => array( 
-								 'display' => 0, 
-								 'require' => 0,
+								 'display' => 1, 
+								 'require' => 1,
 								 'value' => ''	
 							 )
 					  )	   
@@ -1152,11 +1174,11 @@ $_['d_quickcheckout_setting'] = array(
 					  'display' => 1,
 					  'option' => array(
 							'voucher' => array(
-										'display' => 0,
+										'display' => 1,
 										'value' => ''
 							),
 							'coupon' => array(
-										'display' => 0,
+										'display' => 1,
 										'value' => ''
 							),
 							'reward' => array(
@@ -1176,6 +1198,11 @@ $_['d_quickcheckout_setting'] = array(
 			'confirm' => array(
 					  'display' => 1,
 					  'fields' => array(
+							'delivery_date' => array( 
+								'display' => 1, 
+								'require' => 1,
+								'value' => ''	
+							),
 					  		'comment' => array( 
 								 'display' => 1, 
 								 'require' => 0,

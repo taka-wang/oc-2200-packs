@@ -233,7 +233,7 @@ $this->load->model('extension/d_quickcheckout/address');
                 //'address_id' => $this->customer->getAddressId(),
             );
             $this->session->data['confirm'] = array(
-
+                'delivery_date' =>  $this->setSessionValue('delivery_date','confirm', $data, $account, false),
                 'comment' =>  $this->setSessionValue('comment','confirm', $data, $account, false),
                 'agree' =>  $this->setSessionValue('agree','confirm', $data, $account, false),
 
@@ -358,6 +358,7 @@ $this->load->model('extension/d_quickcheckout/address');
 
         $this->session->data['comment'] = (!empty($this->session->data['comment'])) ? $this->session->data['comment'] : $data['account'][$account]['confirm']['fields']['comment']['value'];
         $this->session->data['confirm'] = array(
+            'delivery_date' => '',
             'comment' => '',
             'agree' =>  $this->setSessionValue('agree','confirm', $data, $account),
         );

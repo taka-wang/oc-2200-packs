@@ -29,6 +29,7 @@ $_['text_address_existing']          = '使用現有地址';
 $_['text_shipping_method']           = '請選擇一個運送方式。';
 $_['text_payment_method']            = '請選擇一個支付方式。';
 $_['text_comments']                  = '新增訂單備註';
+$_['text_delivery_date']             = '預計到貨日期 (D+2)';
 $_['text_recurring_item']            = '分期付款商品';
 $_['text_payment_recurring']         = '分期付款方式';
 $_['text_trial_description']         = '%s 每 %d %s 給 %d 付款後';

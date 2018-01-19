@@ -29,6 +29,7 @@ $_['text_address_existing']          = 'I want to use an existing address';
 $_['text_shipping_method']           = 'Please select the preferred shipping method to use on this order.';
 $_['text_payment_method']            = 'Please select the preferred payment method to use on this order.';
 $_['text_comments']                  = 'Add Comments About Your Order';
+$_['text_delivery_date']             = 'Expected Delivery Date';
 $_['text_recurring_item']            = 'Recurring Item';
 $_['text_payment_recurring']         = 'Payment Profile';
 $_['text_trial_description']         = '%s every %d %s(s) for %d payment(s) then';

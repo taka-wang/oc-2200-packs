@@ -2674,6 +2674,7 @@
   opacity: 1;
 }
 #d_quickcheckout textarea.form-control {
+  min-height: 100px;
   height: auto;
 }
 #d_quickcheckout input[type=search] {
