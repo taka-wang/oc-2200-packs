@@ -34,6 +34,7 @@ $_['entry_fax']                        = '傳真';
 $_['entry_image']                      = '圖片';
 $_['entry_open']                       = '營業時間';
 $_['entry_comment']                    = '備註';
+$_['entry_delivery_date']              = '希望到貨日';
 $_['entry_location']                   = '商店地址';
 $_['entry_meta_title']                 = 'Meta標題';
 $_['entry_meta_description']           = 'Meta描述';

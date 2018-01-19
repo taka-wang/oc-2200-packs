@@ -39,6 +39,7 @@ $_['entry_fax']                    = 'Fax';
 $_['entry_image']                  = 'Image';
 $_['entry_open']                   = 'Opening Times';
 $_['entry_comment']                = 'Comment';
+$_['entry_delivery_date']          = 'Expected Delivery Date';
 $_['entry_location']               = 'Store Location';
 $_['entry_country']                = 'Country';
 $_['entry_zone']                   = 'Region / State';

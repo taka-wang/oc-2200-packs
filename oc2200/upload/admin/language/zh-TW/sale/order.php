@@ -24,6 +24,7 @@ $_['text_order']				= '訂單(#%s)：';
 $_['text_payment_address']		= '支付地址：';
 $_['text_shipping_address']		= '運送地址：';
 $_['text_comment']				= '備註：';
+$_['text_delivery_date']        = '希望到貨日期';
 $_['text_history']				= '歷史訂單';
 $_['text_history_add']			= '新增訂單記錄';
 $_['text_account_custom_field'] = '帳號自訂欄位';
@@ -58,6 +59,7 @@ $_['text_commission_removed']  = '成功：獎金已刪除！';
 $_['text_restock']             = '成功：商品已補貨！';
 $_['text_upload']              = '您的檔案已上傳！';
 $_['text_picklist']            = '發貨單備註';
+$_['text_shipping']            = '出貨明細';
 
 // Column
 $_['column_order_id']          = '訂單編號';
@@ -65,6 +67,7 @@ $_['column_customer']          = '客戶名稱';
 $_['column_status']            = '狀態';
 $_['column_date_added']        = '產生日期';
 $_['column_date_modified']     = '修改日期';
+$_['column_delivery_date']= '希望到貨日期';
 $_['column_total']             = '總計';
 $_['column_product']           = '商品名稱';
 $_['column_model']             = '型號';
@@ -110,6 +113,7 @@ $_['entry_order_status']       = '狀態';
 $_['entry_notify']             = '通知客戶';
 $_['entry_override']           = '覆蓋';
 $_['entry_comment']            = '備註';
+$_['entry_delivery_date']      = '希望到貨日';
 $_['entry_currency']           = '幣別';
 $_['entry_shipping_method']    = '運送方式';
 $_['entry_payment_method']     = '支付方式';
@@ -120,6 +124,7 @@ $_['entry_order_id']           = '訂單 ID';
 $_['entry_total']              = '總計';
 $_['entry_date_added']         = '新增日期';
 $_['entry_date_modified']      = '修改日期';
+$_['entry_delivery_date']      = '希望到貨日期';
 
 // Help
 $_['help_override']				= 'If the customers order is being blocked from changing the order status due to a anti-fraud extension enable override.';

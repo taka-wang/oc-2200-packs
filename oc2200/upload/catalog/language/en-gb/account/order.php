@@ -14,6 +14,7 @@ $_['text_shipping_method']  = 'Shipping Method:';
 $_['text_payment_address']  = 'Payment Address';
 $_['text_payment_method']   = 'Payment Method:';
 $_['text_comment']          = 'Order Comments';
+$_['text_delivery_date']    = 'Expected Delivery Date';
 $_['text_history']          = 'Order History';
 $_['text_success']          = 'Success: You have added <a href="%s">%s</a> to your <a href="%s">shopping cart</a>!';
 $_['text_empty']            = 'You have not made any previous orders!';

@@ -17,6 +17,7 @@ $_['column_customer_group'] = 'Customer Group';
 $_['column_status']         = 'Status';
 $_['column_date_added']     = 'Date Added';
 $_['column_comment']        = 'Comment';
+$_['entry_delivery_date']   = 'Expected Delivery Date';
 $_['column_description']    = 'Description';
 $_['column_amount']         = 'Amount';
 $_['column_points']         = 'Points';

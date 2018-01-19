@@ -46,6 +46,7 @@ $_['entry_country']         = '國家';
 $_['entry_zone']            = '縣市';
 $_['entry_default']         = '預設地址';
 $_['entry_comment']         = '附註';
+$_['entry_delivery_date']   = '希望到貨日';
 $_['entry_description']     = '說明';
 $_['entry_amount']          = '總額';
 $_['entry_points']          = '點數';

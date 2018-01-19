@@ -69,6 +69,12 @@ class ControllerSaleOrder extends Controller {
 			$filter_date_modified = null;
 		}
 
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$filter_delivery_date = $this->request->get['filter_delivery_date'];
+		} else {
+			$filter_delivery_date = null;
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$sort = $this->request->get['sort'];
 		} else {
@@ -113,6 +119,10 @@ class ControllerSaleOrder extends Controller {
 			$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];
 		}
 
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
 		}
@@ -150,6 +160,7 @@ class ControllerSaleOrder extends Controller {
 			'filter_total'         => $filter_total,
 			'filter_date_added'    => $filter_date_added,
 			'filter_date_modified' => $filter_date_modified,
+			'filter_delivery_date' => $filter_delivery_date,
 			'sort'                 => $sort,
 			'order'                => $order,
 			'start'                => ($page - 1) * $this->config->get('config_limit_admin'),
@@ -166,8 +177,9 @@ class ControllerSaleOrder extends Controller {
 				'customer'      => $result['customer'],
 				'order_status'  => $result['order_status'],
 				'total'         => $this->currency->format($result['total'], $result['currency_code'], $result['currency_value']),
-				'date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),
-				'date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),
+				'date_added'    => date($this->language->get('datetime_format'), strtotime($result['date_added'])),
+				'date_modified' => date($this->language->get('datetime_format'), strtotime($result['date_modified'])),
+				'delivery_date' => date($this->language->get('date_format_short'), strtotime($result['delivery_date'])),	//訂單管理下方
 				'shipping_code' => $result['shipping_code'],
 				'view'          => $this->url->link('sale/order/info', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true),
 				'edit'          => $this->url->link('sale/order/edit', 'token=' . $this->session->data['token'] . '&order_id=' . $result['order_id'] . $url, true),
@@ -188,6 +200,7 @@ class ControllerSaleOrder extends Controller {
 		$data['column_total'] = $this->language->get('column_total');
 		$data['column_date_added'] = $this->language->get('column_date_added');
 		$data['column_date_modified'] = $this->language->get('column_date_modified');
+		$data['column_delivery_date'] = $this->language->get('column_delivery_date');
 		$data['column_action'] = $this->language->get('column_action');
 
 		$data['entry_order_id'] = $this->language->get('entry_order_id');
@@ -196,6 +209,7 @@ class ControllerSaleOrder extends Controller {
 		$data['entry_total'] = $this->language->get('entry_total');
 		$data['entry_date_added'] = $this->language->get('entry_date_added');
 		$data['entry_date_modified'] = $this->language->get('entry_date_modified');
+		$data['entry_delivery_date'] = $this->language->get('entry_delivery_date');
 
 		$data['button_invoice_print'] = $this->language->get('button_invoice_print');
 		$data['button_shipping_print'] = $this->language->get('button_shipping_print');
@@ -240,6 +254,10 @@ class ControllerSaleOrder extends Controller {
 			$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];
 		}
 
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
+		}
+
 		if ($order == 'ASC') {
 			$url .= '&order=DESC';
 		} else {
@@ -256,6 +274,7 @@ class ControllerSaleOrder extends Controller {
 		$data['sort_total'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . '&sort=o.total' . $url, true);
 		$data['sort_date_added'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . '&sort=o.date_added' . $url, true);
 		$data['sort_date_modified'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . '&sort=o.date_modified' . $url, true);
+		$data['sort_delivery_date'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . '&sort=o.delivery_date' . $url, true);
 
 		$url = '';
 
@@ -283,6 +302,10 @@ class ControllerSaleOrder extends Controller {
 			$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];
 		}
 
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
+		}
+
 		if (isset($this->request->get['sort'])) {
 			$url .= '&sort=' . $this->request->get['sort'];
 		}
@@ -307,6 +330,7 @@ class ControllerSaleOrder extends Controller {
 		$data['filter_total'] = $filter_total;
 		$data['filter_date_added'] = $filter_date_added;
 		$data['filter_date_modified'] = $filter_date_modified;
+		$data['filter_delivery_date'] = $filter_delivery_date;
 
 		$data['sort'] = $sort;
 		$data['order'] = $order;
@@ -362,6 +386,7 @@ class ControllerSaleOrder extends Controller {
 		$data['entry_telephone'] = $this->language->get('entry_telephone');
 		$data['entry_fax'] = $this->language->get('entry_fax');
 		$data['entry_comment'] = $this->language->get('entry_comment');
+		$data['entry_delivery_date'] = $this->language->get('entry_delivery_date');
 		$data['entry_affiliate'] = $this->language->get('entry_affiliate');
 		$data['entry_address'] = $this->language->get('entry_address');
 		$data['entry_company'] = $this->language->get('entry_company');
@@ -443,6 +468,10 @@ class ControllerSaleOrder extends Controller {
 
 		if (isset($this->request->get['filter_date_modified'])) {
 			$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];
+		}
+
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
 		}
 
 		if (isset($this->request->get['sort'])) {
@@ -561,6 +590,7 @@ class ControllerSaleOrder extends Controller {
 
 			$data['order_status_id'] = $order_info['order_status_id'];
 			$data['comment'] = $order_info['comment'];
+			$data['delivery_date'] = $order_info['delivery_date'];
 			$data['affiliate_id'] = $order_info['affiliate_id'];
 			$data['affiliate'] = $order_info['affiliate_firstname'] . ' ' . $order_info['affiliate_lastname'];
 			$data['currency_code'] = $order_info['currency_code'];
@@ -613,6 +643,7 @@ class ControllerSaleOrder extends Controller {
 
 			$data['order_status_id'] = $this->config->get('config_order_status_id');
 			$data['comment'] = '';
+			$data['delivery_date'] = '';
 			$data['affiliate_id'] = '';
 			$data['affiliate'] = '';
 			$data['currency_code'] = $this->config->get('config_currency');
@@ -747,6 +778,7 @@ class ControllerSaleOrder extends Controller {
 			$data['text_payment_address'] = $this->language->get('text_payment_address');
 			$data['text_shipping_address'] = $this->language->get('text_shipping_address');
 			$data['text_comment'] = $this->language->get('text_comment');
+			$data['text_delivery_date'] = $this->language->get('text_delivery_date');
 			$data['text_account_custom_field'] = $this->language->get('text_account_custom_field');
 			$data['text_payment_custom_field'] = $this->language->get('text_payment_custom_field');
 			$data['text_shipping_custom_field'] = $this->language->get('text_shipping_custom_field');
@@ -769,6 +801,7 @@ class ControllerSaleOrder extends Controller {
 			$data['entry_notify'] = $this->language->get('entry_notify');
 			$data['entry_override'] = $this->language->get('entry_override');
 			$data['entry_comment'] = $this->language->get('entry_comment');
+			$data['entry_delivery_date'] = $this->language->get('entry_delivery_date');
 
 			$data['help_override'] = $this->language->get('help_override');
 
@@ -815,6 +848,10 @@ class ControllerSaleOrder extends Controller {
 				$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];
 			}
 
+			if (isset($this->request->get['filter_delivery_date'])) {
+				$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
+			}
+
 			if (isset($this->request->get['sort'])) {
 				$url .= '&sort=' . $this->request->get['sort'];
 			}
@@ -855,7 +892,7 @@ class ControllerSaleOrder extends Controller {
 				$data['invoice_no'] = '';
 			}
 
-			$data['date_added'] = date($this->language->get('date_format_short'), strtotime($order_info['date_added']));
+			$data['date_added'] = date($this->language->get('datetime_format'), strtotime($order_info['date_added'])); // 訂單管理
 
 			$data['firstname'] = $order_info['firstname'];
 			$data['lastname'] = $order_info['lastname'];
@@ -1022,6 +1059,7 @@ class ControllerSaleOrder extends Controller {
 			}
 
 			$data['comment'] = nl2br($order_info['comment']);
+			$data['delivery_date'] = date($this->language->get('date_format_short'), strtotime($order_info['delivery_date']));
 
 			$this->load->model('customer/customer');
 
@@ -1477,7 +1515,7 @@ class ControllerSaleOrder extends Controller {
 				'notify'     => $result['notify'] ? $this->language->get('text_yes') : $this->language->get('text_no'),
 				'status'     => $result['status'],
 				'comment'    => nl2br($result['comment']),
-				'date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added']))
+				'date_added' => date($this->language->get('datetime_format'), strtotime($result['date_added'])) // 歷史訂單
 			);
 		}
 
@@ -1511,6 +1549,7 @@ class ControllerSaleOrder extends Controller {
 		$data['lang'] = $this->language->get('code');
 
 		$data['text_invoice'] = $this->language->get('text_invoice');
+		$data['text_shipping'] = $this->language->get('text_shipping');
 		$data['text_order_detail'] = $this->language->get('text_order_detail');
 		$data['text_order_id'] = $this->language->get('text_order_id');
 		$data['text_invoice_no'] = $this->language->get('text_invoice_no');
@@ -1525,7 +1564,7 @@ class ControllerSaleOrder extends Controller {
 		$data['text_payment_method'] = $this->language->get('text_payment_method');
 		$data['text_shipping_method'] = $this->language->get('text_shipping_method');
 		$data['text_comment'] = $this->language->get('text_comment');
-
+		$data['text_delivery_date'] = $this->language->get('text_delivery_date');
 		$data['column_product'] = $this->language->get('column_product');
 		$data['column_model'] = $this->language->get('column_model');
 		$data['column_quantity'] = $this->language->get('column_quantity');
@@ -1703,7 +1742,7 @@ class ControllerSaleOrder extends Controller {
 				$data['orders'][] = array(
 					'order_id'	       => $order_id,
 					'invoice_no'       => $invoice_no,
-					'date_added'       => date($this->language->get('date_format_short'), strtotime($order_info['date_added'])),
+					'date_added'       => date($this->language->get('datetime_format'), strtotime($order_info['date_added'])), // invoice
 					'store_name'       => $order_info['store_name'],
 					'store_url'        => rtrim($order_info['store_url'], '/'),
 					'store_address'    => nl2br($store_address),
@@ -1719,7 +1758,8 @@ class ControllerSaleOrder extends Controller {
 					'product'          => $product_data,
 					'voucher'          => $voucher_data,
 					'total'            => $total_data,
-					'comment'          => nl2br($order_info['comment'])
+					'comment'          => nl2br($order_info['comment']),
+					'delivery_date'    => date($this->language->get('date_format_short'), strtotime($order_info['delivery_date']))
 				);
 			}
 		}
@@ -1762,7 +1802,7 @@ class ControllerSaleOrder extends Controller {
 		$data['text_isbn'] = $this->language->get('text_isbn');
 		$data['text_mpn'] = $this->language->get('text_mpn');
 		$data['text_comment'] = $this->language->get('text_comment');
-
+		$data['text_delivery_date'] = $this->language->get('text_delivery_date');
 		$data['column_location'] = $this->language->get('column_location');
 		$data['column_reference'] = $this->language->get('column_reference');
 		$data['column_product'] = $this->language->get('column_product');

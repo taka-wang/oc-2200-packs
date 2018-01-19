@@ -109,7 +109,7 @@ qc.ConfirmView = qc.View.extend({
 
 		if(typeof(data.show_confirm) !== 'undefined'){
 			this.model.set('show_confirm', data.show_confirm);
-			this.render();
+			//this.render(); //<-- taka: prevent datetimepicker close issue
 		}
 
 		if(typeof(data.payment_popup) !== 'undefined'){

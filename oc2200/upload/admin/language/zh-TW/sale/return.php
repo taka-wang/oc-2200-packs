@@ -22,6 +22,7 @@ $_['column_model']         = '商品型號';
 $_['column_status']        = '狀態';
 $_['column_date_added']    = '申請日期';
 $_['column_date_modified'] = '修改日期';
+$_['column_delivery_date'] = '希望到貨日期';
 $_['column_comment']       = '備註';
 $_['column_notify']        = '客戶通知';
 $_['column_action']        = '管理';
@@ -39,6 +40,7 @@ $_['entry_model']         = '商品型號';
 $_['entry_quantity']      = '數量';
 $_['entry_opened']        = '已拆封';
 $_['entry_comment']       = '備註';
+$_['entry_delivery_date'] = '希望到貨日';
 $_['entry_return_reason'] = '退換原因';
 $_['entry_return_action'] = '退換管理';
 $_['entry_return_status'] = '退換狀態';
@@ -46,6 +48,7 @@ $_['entry_notify']        = '客戶通知';
 $_['entry_return_id']     = '退換 ID';
 $_['entry_date_added']    = '新增日期';
 $_['entry_date_modified'] = '修改日期';
+$_['entry_delivery_date'] = '希望到貨日期';
 
 // Help
 $_['help_product']        = '(自動完成)';

@@ -36,9 +36,56 @@ $_['d_quickcheckout_setting'] = array(
 		'only_quickcheckout' => 0,
 		'telephone_countries' => '',
 		'telephone_preferred_countries' => '',
-		'telephone_validation' =>0,		// 0, 1
+		'telephone_validation' => 0,	// 0, 1
 		'cart_image_size' => array('width' => 80, 'height' => 80),				
-		'custom_style' => '',
+		'custom_style' => '
+			/* today */
+			.bootstrap-datetimepicker-widget td.today:before {
+			border-bottom: 7px solid #d9534f;
+			}
+			/*picked*/
+			.bootstrap-datetimepicker-widget td.active,
+			.bootstrap-datetimepicker-widget td.active:hover {
+			background-color: #ca426b;
+			}
+			.bootstrap-datetimepicker-widget td span.active {
+			background-color: #d9534f;
+			}
+			/*disabled*/
+			.bootstrap-datetimepicker-widget td.disabled,
+			.bootstrap-datetimepicker-widget td.disabled:hover {
+			color: #eeeeee;
+			}
+			#d_quickcheckout textarea.form-control {
+				min-height: 100px;
+			}
+			/*size*/
+			#d_quickcheckout .btn-group > .btn,
+			#d_quickcheckout .btn-group > .dropdown-menu,
+			#d_quickcheckout .btn-group > .popover,
+			#d_quickcheckout label,
+			#d_quickcheckout select.form-control,
+			#d_quickcheckout textarea.form-control,
+			#d_quickcheckout input[type="text"].form-control,
+			#d_quickcheckout input[type="password"].form-control,
+			#d_quickcheckout input[type="datetime"].form-control,
+			#d_quickcheckout input[type="datetime-local"].form-control,
+			#d_quickcheckout input[type="date"].form-control,
+			#d_quickcheckout input[type="month"].form-control,
+			#d_quickcheckout input[type="time"].form-control,
+			#d_quickcheckout input[type="week"].form-control,
+			#d_quickcheckout input[type="number"].form-control,
+			#d_quickcheckout input[type="email"].form-control,
+			#d_quickcheckout input[type="url"].form-control,
+			#d_quickcheckout input[type="search"].form-control,
+			#d_quickcheckout input[type="tel"].form-control,
+			#d_quickcheckout input[type="color"].form-control {
+				font-size: 14px;
+			}
+			#d_quickcheckout a {
+				color: #DB4D6D;
+			}
+		',
 		'bootstrap' => 1,
 		'autocomplete' => 1
 	),
@@ -731,8 +778,8 @@ $_['d_quickcheckout_setting'] = array(
 										 'value' => ''	
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
+										 'display' => 1, 
+										 'require' => 1,
 										 'value' => ''	
 										 ),
 					'newsletter' => array( 
@@ -794,12 +841,12 @@ $_['d_quickcheckout_setting'] = array(
 					'country_id' => array(
 										 'display' => 0, 
 										 'require' => 0,
-										 'value' => ''	
+										 'value' => '206'	
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
-										 'value' => ''	
+										 'display' => 1, 
+										 'require' => 1,
+										 'value' => '3138'	
 										 )
 					)
 			),
@@ -935,12 +982,12 @@ $_['d_quickcheckout_setting'] = array(
 					'country_id' => array(
 										 'display' => 0, 
 										 'require' => 0,
-										 'value' => ''	
+										 'value' => '206'	
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
-										 'value' => ''	
+										 'display' => 1, 
+										 'require' => 1,
+										 'value' => '3138'	
 										 ),
 					'shipping_address' => array( 
 										 'display' => 1,
@@ -995,12 +1042,12 @@ $_['d_quickcheckout_setting'] = array(
 					'country_id' => array(
 										 'display' => 0, 
 										 'require' => 0,
-										 'value' => ''
+										 'value' => '206'
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
-										 'value' => ''
+										 'display' => 1, 
+										 'require' => 1,
+										 'value' => '3138'
 										 )
 					)
 			),
@@ -1099,12 +1146,12 @@ $_['d_quickcheckout_setting'] = array(
 					'country_id' => array(
 										 'display' => 0, 
 										 'require' => 0,
-										 'value' => ''
+										 'value' => '206'
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
-										 'value' => ''
+										 'display' => 1, 
+										 'require' => 1,
+										 'value' => '3138'
 										 ),
 					'shipping_address' => array( 
 										 'display' => 1,
@@ -1155,12 +1202,12 @@ $_['d_quickcheckout_setting'] = array(
 					'country_id' => array(
 										 'display' => 0, 
 										 'require' => 0,
-										 'value' => ''
+										 'value' => '206'
 										 ),
 					'zone_id' => array(
-										 'display' => 0, 
-										 'require' => 0,
-										 'value' => ''
+										 'display' => 1, 
+										 'require' => 1,
+										 'value' => '3138'
 										 )
 					)
 			),
