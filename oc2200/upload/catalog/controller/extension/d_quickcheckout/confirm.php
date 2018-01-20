@@ -45,6 +45,7 @@ class ControllerExtensionDQuickcheckoutConfirm extends Controller {
     public function updateField(){
         $json['confirm'] = $this->session->data['confirm'] = array_merge($this->session->data['confirm'], $this->request->post['confirm']);
         $this->session->data['comment'] = $this->session->data['confirm']['comment'];
+        $this->session->data['delivery_date'] = $this->session->data['confirm']['delivery_date'];
 
         $this->load->model('extension/d_quickcheckout/order');
         $json['show_confirm'] = $this->model_extension_d_quickcheckout_order->showConfirm();
@@ -358,6 +359,7 @@ class ControllerExtensionDQuickcheckoutConfirm extends Controller {
 
 
         $order_data['comment'] = $this->session->data['comment'];
+        $order_data['delivery_date'] = $this->session->data['delivery_date'];
         $order_data['total'] = $total;
 
         if (isset($this->request->cookie['tracking'])) {
