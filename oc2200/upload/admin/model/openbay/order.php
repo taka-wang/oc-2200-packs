@@ -106,7 +106,7 @@ class ModelOpenbayOrder extends Model {
 		$sort_data = array(
 			'o.order_id',
 			'customer',
-			'status',
+			'order_status',
 			'o.date_added',
 			'channel',
 		);

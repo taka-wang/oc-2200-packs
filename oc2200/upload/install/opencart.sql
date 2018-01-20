@@ -1881,7 +1881,7 @@ CREATE TABLE `oc_order` (
   `shipping_code` varchar(128) NOT NULL,
   `comment` text NOT NULL,
   `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
-  `order_status_id` int(11) NOT NULL DEFAULT '0',
+  `order_status_id` int(11) NOT NULL DEFAULT '7',
   `affiliate_id` int(11) NOT NULL,
   `commission` decimal(15,4) NOT NULL,
   `marketing_id` int(11) NOT NULL,
