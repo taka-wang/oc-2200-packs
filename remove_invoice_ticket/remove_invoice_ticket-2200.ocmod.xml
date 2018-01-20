@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Remove invoice ticket</name>
+    <version>0.1</version>
+    <link>https://github.com/taka-wang/oc-2200-packs</link>
+    <author>Taka Wang</author>
+    <code>remove_invoice_ticket</code>
+
+    <file path="admin/view/template/sale/order_info.tpl">
+        <operation error="skip">
+            <search><![CDATA[<button id="button-invoice"]]></search>
+            <add position="before" offset="4"><![CDATA[<!--]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[<button id="button-invoice"]]></search>
+            <add position="after" offset="4"><![CDATA[-->]]></add>
+        </operation>
+    </file>
+</modification>
