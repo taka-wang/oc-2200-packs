@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Remove LastName Fields</name>
-    <version>0.2</version>
+    <version>1.2</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
     <code>remove_lastname_field</code>
@@ -126,6 +126,20 @@
         <operation error="skip">
             <search><![CDATA['lastname'          => $this->request->post['lastname'],]]></search>
             <add position="replace"><![CDATA[//'lastname'          => $this->request->post['lastname'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/order.php">
+        <operation error="skip">
+            <search><![CDATA[$order_data['lastname'] = $this->session->data['customer']['lastname'];]]></search>
+            <add position="replace"><![CDATA[$order_data['lastname'] = '';]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$order_data['payment_lastname'] = $this->session->data['payment_address']['lastname'];]]></search>
+            <add position="replace"><![CDATA[$order_data['payment_lastname'] = '';]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$order_data['shipping_lastname'] = $this->session->data['shipping_address']['lastname'];]]></search>
+            <add position="replace"><![CDATA[$order_data['shipping_lastname'] = '';]]></add>
         </operation>
     </file>
     <file path="catalog/controller/api/payment.php">
