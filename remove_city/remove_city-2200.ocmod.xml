@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Remove City Fields</name>
-    <version>0.3</version>
+    <version>0.4</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
     <code>remove_city_field</code>
@@ -94,6 +94,16 @@
         <operation error="skip">
             <search><![CDATA['city'           => $this->request->post['city'],]]></search>
             <add position="replace"><![CDATA[//'city'           => $this->request->post['city'],]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/api/order.php">
+        <operation error="skip">
+            <search><![CDATA[$order_data['payment_city'] = $this->session->data['payment_address']['city'];]]></search>
+            <add position="replace"><![CDATA[$order_data['payment_city'] = '';]]></add>
+        </operation>
+        <operation error="skip">
+            <search><![CDATA[$order_data['shipping_city'] = $this->session->data['shipping_address']['city'];]]></search>
+            <add position="replace"><![CDATA[$order_data['shipping_city'] = '';]]></add>
         </operation>
     </file>
     <file path="catalog/controller/api/shipping.php">
