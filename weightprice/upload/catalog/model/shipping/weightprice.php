@@ -54,7 +54,7 @@ class ModelShippingWeightprice extends Model {
 					$quote_data['weightprice_' . $result['geo_zone_id']] = array(
 						'code'         => 'weightprice.weightprice_' . $result['geo_zone_id'],
 						//'title'        => $result['name'] . '  (' . $this->language->get('text_weight') . ' ' . $this->weight->format($weight, $this->config->get('config_weightprice_class_id')) . ')',
-						'title'        => $result['name'],
+						'title'        => $this->language->get('text_title') . ' (' . $result['name'] . ')',
 						'cost'         => $cost,
 						'tax_class_id' => $this->config->get('weightprice_tax_class_id'),
 						'text'         => $this->currency->format($this->tax->calculate($cost, $this->config->get('weightprice_tax_class_id'), $this->config->get('config_tax')), $this->session->data['currency'])
