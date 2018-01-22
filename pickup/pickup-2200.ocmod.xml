@@ -13,7 +13,7 @@
         </operation>
         <operation error="skip">
             <search><![CDATA[$_['text_description'] = '到本商店自行取貨';]]></search>
-            <add position="replace"><![CDATA[$_['text_description'] = '永寧捷運站面交取貨';]]></add>
+            <add position="replace"><![CDATA[$_['text_description'] = '面交取貨 (永寧捷運站)';]]></add>
         </operation>
     </file>
     <file path="admin/language/zh-TW/shipping/pickup.php">
