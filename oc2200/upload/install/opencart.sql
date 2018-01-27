@@ -1881,7 +1881,7 @@ CREATE TABLE `oc_order` (
   `shipping_code` varchar(128) NOT NULL,
   `comment` text NOT NULL,
   `total` decimal(15,4) NOT NULL DEFAULT '0.0000',
-  `order_status_id` int(11) NOT NULL DEFAULT '1',
+  `order_status_id` int(11) NOT NULL DEFAULT '0',
   `affiliate_id` int(11) NOT NULL,
   `commission` decimal(15,4) NOT NULL,
   `marketing_id` int(11) NOT NULL,
@@ -2042,20 +2042,34 @@ CREATE TABLE `oc_order_status` (
 --
 
 INSERT INTO `oc_order_status` (`order_status_id`, `language_id`, `name`) VALUES
-(2, 1, 'Processing'),
-(3, 1, 'Shipped'),
-(7, 1, 'Canceled'),
-(5, 1, 'Complete'),
-(8, 1, 'Denied'),
-(9, 1, 'Canceled Reversal'),
-(10, 1, 'Failed'),
-(11, 1, 'Refunded'),
-(12, 1, 'Reversed'),
-(13, 1, 'Chargeback'),
-(1, 1, 'Pending'),
-(16, 1, 'Voided'),
-(15, 1, 'Processed'),
-(14, 1, 'Expired');
+--(2, 1, 'Processing'),
+--(3, 1, 'Shipped'),
+--(7, 1, 'Canceled'),
+--(5, 1, 'Complete'),
+--(8, 1, 'Denied'),
+--(9, 1, 'Canceled Reversal'),
+--(10, 1, 'Failed'),
+--(11, 1, 'Refunded'),
+--(12, 1, 'Reversed'),
+--(13, 1, 'Chargeback'),
+--(1, 1, 'Pending'),
+--(16, 1, 'Voided'),
+--(15, 1, 'Processed'),
+--(14, 1, 'Expired');
+(2, 1, '正在處理中'),
+(3, 1, '已出貨'),
+(7, 1, '已取消'),
+(5, 1, '已完成'),
+(8, 1, '已拒絕'),
+(9, 1, '已取消撤銷'),
+(10, 1, '失敗'),
+(11, 1, '已退款'),
+(12, 1, '已撤銷'),
+(13, 1, '交易糾紛'),
+(1, 1, '等待處理中'),
+(16, 1, '空訂單'),
+(15, 1, '已處理'),
+(14, 1, '已過期');
 
 
 -- --------------------------------------------------------
@@ -2939,7 +2953,7 @@ INSERT INTO `oc_setting` (`setting_id`, `store_id`, `code`, `key`, `value`, `ser
 (215, 0, 'config', 'config_checkout_guest', '1', 0),
 (216, 0, 'config', 'config_checkout_id', '5', 0),
 (217, 0, 'config', 'config_order_status_id', '1', 0),
-(218, 0, 'config', 'config_processing_status', '["5","1","2","12","3"]', 1),
+(218, 0, 'config', 'config_processing_status', '["5","2","12","3"]', 1),
 (219, 0, 'config', 'config_complete_status', '["5","3"]', 1),
 (220, 0, 'config', 'config_order_mail', '0', 0),
 (221, 0, 'config', 'config_stock_display', '0', 0),
@@ -3030,10 +3044,10 @@ CREATE TABLE `oc_stock_status` (
 --
 
 INSERT INTO `oc_stock_status` (`stock_status_id`, `language_id`, `name`) VALUES
-(7, 1, '有貨'),
+(7, 1, '現貨'),
 (8, 1, '預購'),
-(5, 1, '目前缺貨'),
-(6, 1, '等待 2-3 天');
+(5, 1, '無庫存'),
+(6, 1, '即將到貨');
 
 -- --------------------------------------------------------
 
