@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Pickup</name>
-    <version>0.2</version>
+    <version>0.3</version>
     <link>https://github.com/taka-wang/oc-2200-packs</link>
     <author>Taka Wang</author>
     <code>pickup</code>
@@ -13,7 +13,7 @@
         </operation>
         <operation error="skip">
             <search><![CDATA[$_['text_description'] = '到本商店自行取貨';]]></search>
-            <add position="replace"><![CDATA[$_['text_description'] = '面交取貨 (永寧捷運站)';]]></add>
+            <add position="replace"><![CDATA[$_['text_description'] = '面交取貨 (永寧捷運站2號出口)';]]></add>
         </operation>
     </file>
     <file path="admin/language/zh-TW/shipping/pickup.php">
