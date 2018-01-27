@@ -90,11 +90,7 @@
             <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
             <add position="after" offset="1"><![CDATA[*/]]></add>
         </operation>
-        <!--note 3-->
-        <operation error="skip">
-            <search><![CDATA['city'           => $this->request->post['city'],]]></search>
-            <add position="replace"><![CDATA[//'city'           => $this->request->post['city'],]]></add>
-        </operation>
+
     </file>
     <file path="catalog/controller/api/order.php">
         <operation error="skip">
@@ -115,11 +111,7 @@
             <search><![CDATA[$json['error']['city'] = $this->language->get('error_city');]]></search>
             <add position="after" offset="1"><![CDATA[*/]]></add>
         </operation>
-        <!--note 3-->
-        <operation error="skip">
-            <search><![CDATA['city'           => $this->request->post['city'],]]></search>
-            <add position="replace"><![CDATA[//'city'           => $this->request->post['city'],]]></add>
-        </operation>
+
     </file>
         <!-- checkout -->
     <file path="catalog/controller/checkout/guest_shipping.php">

@@ -90,12 +90,8 @@
             <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
             <add position="after" offset="1"><![CDATA[*/]]></add>
         </operation>
-        <!--note 3-->
-        <operation error="skip">
-            <search><![CDATA['country_id'     => $this->request->post['country_id'],]]></search>
-            <add position="replace"><![CDATA[//'country_id'     => $this->request->post['country_id'],]]></add>
-        </operation>
-    </file>  
+
+    </file>
     <file path="catalog/controller/api/shipping.php">
         <operation error="skip">
             <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
@@ -105,11 +101,7 @@
             <search><![CDATA[$json['error']['country'] = $this->language->get('error_country');]]></search>
             <add position="after" offset="1"><![CDATA[*/]]></add>
         </operation>
-        <!--note 3-->
-        <operation error="skip">
-            <search><![CDATA['country_id'     => $this->request->post['country_id'],]]></search>
-            <add position="replace"><![CDATA[//'country_id'     => $this->request->post['country_id'],]]></add>
-        </operation>
+
     </file>
         <!-- checkout -->
     <file path="catalog/controller/checkout/guest_shipping.php">
@@ -218,16 +210,7 @@
             <add position="after" offset="16"><![CDATA[--><select name="country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
         </operation>
     </file>
-    <file path="admin/view/template/sale/order_form.tpl">
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
-            <add position="before" offset="1"><![CDATA[<!--]]></add>
-        </operation>
-        <operation error="skip">
-            <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
-            <add position="after" offset="13"><![CDATA[--><select name="country_id" style="display:none"> </select>]]></add>
-        </operation>
-    </file>
+
 
     <file path="admin/view/template/setting/store_form.tpl">
         <operation error="skip">
@@ -238,7 +221,7 @@
             <search><![CDATA[<?php echo $entry_country; ?></label>]]></search>
             <add position="after" offset="12"><![CDATA[--><select name="config_country_id" id="input-country" class="form-control" style="display:none"> </select>]]></add>
         </operation>
-    </file>          
+    </file>
         <!-- account -->
     <file path="catalog/view/theme/*/template/account/address_form.tpl">
         <operation error="skip">
