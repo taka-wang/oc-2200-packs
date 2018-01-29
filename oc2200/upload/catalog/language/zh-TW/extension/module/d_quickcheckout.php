@@ -26,6 +26,6 @@ $_['error_step_payment_address_fields_company'] = '公司名稱 3~128 個字';
 $_['error_step_shipping_address_fields_company'] = '公司名稱 3~128 個字';
 
 $_['error_step_confirm_fields_comment'] = '新增訂單備註';
-$_['error_step_confirm_fields_delivery_date'] = '宅配指定日期，面交者請聯絡我們';
+$_['error_step_confirm_fields_delivery_date'] = '必填';
 
 ?>

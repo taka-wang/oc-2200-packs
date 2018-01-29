@@ -79,7 +79,7 @@ qc.FieldView = qc.View.extend({
             dateFormat: "YYYY-MM-DD",
             daysOfWeekDisabled: [0, 1], // disable sunday and monday
             useCurrent: false, // disable today
-            minDate: moment().add(2, 'days').endOf('day')
+            minDate: moment().add(4, 'days').endOf('day')
         })
 
         $('.time', this.el).datetimepicker({

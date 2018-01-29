@@ -77,9 +77,13 @@
 
     <file path="catalog/language/zh-TW/checkout/checkout.php">
         <operation>
+            <search ><![CDATA['新增訂單備註']]></search>
+            <add position="replace"><![CDATA['新增訂單備註&#13;&#10;&#9830;&#9830;&#9830;面交取貨者，請備註時間或者與我們聯絡&#9830;&#9830;&#9830;&#13;&#10;&#9824;&#9824;&#9824;低溫宅配希望14點前到貨者，也煩請備註&#9824;&#9824;&#9824;']]></add>
+        </operation>
+        <operation>
             <search ><![CDATA['text_comments']]></search>
             <add position="after"><![CDATA[
-$_['text_delivery_date']             = '預計到貨日期 (D+2)';
+$_['text_delivery_date']             = '希望到貨日期 (未備註者一律14點後到貨)';
             ]]></add>
         </operation>
     </file>
