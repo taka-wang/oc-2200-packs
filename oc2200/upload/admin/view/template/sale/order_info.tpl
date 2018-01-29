@@ -37,6 +37,10 @@
                 <td><button data-toggle="tooltip" title="<?php echo $text_shipping_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
                 <td><?php echo $shipping_method; ?></td>
               </tr>
+              <tr>
+                <td><button data-toggle="tooltip" title="<?php echo $text_delivery_date; ?>" class="btn btn-danger btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
+                <td><?php echo $delivery_date; ?></td>
+              </tr>
               <?php } ?>
             </tbody>
           </table>

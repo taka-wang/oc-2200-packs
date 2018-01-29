@@ -26,6 +26,7 @@ $_['error_step_payment_address_fields_company'] = 'Company name required more th
 $_['error_step_shipping_address_fields_company'] = 'Company name required more the 3 and less the 128 characters';
 
 $_['error_step_confirm_fields_comment'] = 'Please fill in the comment to the order';
+$_['error_step_confirm_fields_delivery_date'] = 'Expected Delivery Date';
 
 
 ?>

@@ -168,7 +168,7 @@
 					            class="form-control  <%= f.mask ? 'qc-mask': '' %> <%= f.type %> validate <%= require ? ' required ' : ' not-required ' %> <%= f.id %>" 
 					            autocomplete="<%= autocomplete %>" 
 					            qc-mask="<%=f.mask%>" 
-					            <% if(f.type == "date"){ %>data-date-format="MM/DD/YYYY" <% } %>
+					            <% if(f.type == "date"){ %>data-date-format="YYYY-MM-DD" <% } %>
 					            <% if(f.type == "time"){ %>data-date-format="HH:mm" <% } %>
 					            <% if(f.type == "datetime"){ %>data-date-format="YYYY-MM-DD HH:mm" <% } %>
 					            
@@ -185,11 +185,13 @@
 	      		<div id="<%= model.config.id %>_<%= f.id %>_input" 
 			        class="text-input form-group  sort-item <%= display ? '' : 'hidden' %> <%= f.class ? f.class : '' %> <%= require ? ' required ' : '' %>" 
 			        data-sort="<%= f.sort_order %>">
-			        <div class="col-xs-12">
+			        <!--
+							<div class="col-xs-12">
 			          <label class="control-label" for="<%= model.config.id %>_<%= f.id %>"> 
 			            <span class="text" <%= f.tooltip ? 'data-toggle="tooltip"' : '' %> title="<%= f.tooltip %>"> <%= htmlDecode(f.title) %></span> 
 			          </label>
 			        </div>
+							-->
 			        <div class="col-xs-12"> 
 			          <textarea
 			            name="<%= model.config.id %>.<%= f.id %>" 

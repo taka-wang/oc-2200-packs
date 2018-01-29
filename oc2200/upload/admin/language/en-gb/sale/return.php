@@ -22,6 +22,7 @@ $_['column_model']         = 'Model';
 $_['column_status']        = 'Status';
 $_['column_date_added']    = 'Date Added';
 $_['column_date_modified'] = 'Date Modified';
+$_['column_delivery_date'] = 'Expected Delivery Date';
 $_['column_comment']       = 'Comment';
 $_['column_notify']        = 'Customer Notified';
 $_['column_action']        = 'Action';
@@ -39,6 +40,7 @@ $_['entry_model']         = 'Model';
 $_['entry_quantity']      = 'Quantity';
 $_['entry_opened']        = 'Opened';
 $_['entry_comment']       = 'Comment';
+$_['entry_delivery_date'] = 'Expected Delivery Date';
 $_['entry_return_reason'] = 'Return Reason';
 $_['entry_return_action'] = 'Return Action';
 $_['entry_return_status'] = 'Return Status';
@@ -46,6 +48,7 @@ $_['entry_notify']        = 'Notify Customer';
 $_['entry_return_id']     = 'Return ID';
 $_['entry_date_added']    = 'Date Added';
 $_['entry_date_modified'] = 'Date Modified';
+$_['entry_delivery_date'] = 'Expected Delivery Date';
 
 // Help
 $_['help_product']        = '(Autocomplete)';

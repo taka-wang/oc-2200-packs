@@ -174,6 +174,7 @@ class ModelExtensionDQuickcheckoutOrder extends Model {
         $query .= "shipping_method = '" . $this->db->escape($data['shipping_method']) . "', 
             shipping_code = '" . $this->db->escape($data['shipping_code']) . "', 
             comment = '" . $this->db->escape($data['comment']) . "', 
+            delivery_date = '" . date($data['delivery_date']) . "', 
             total = '" . (float) $data['total'] . "', 
             affiliate_id = '" . (int) $data['affiliate_id'] . "', 
             commission = '" . (float) $data['commission'] . "',";

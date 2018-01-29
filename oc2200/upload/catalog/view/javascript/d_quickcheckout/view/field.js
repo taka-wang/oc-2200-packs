@@ -40,7 +40,7 @@ qc.FieldView = qc.View.extend({
         $('.qc-mask').each(function(){
             $(this).mask($(this).attr('qc-mask'));
         })
-        
+
         $('.bootstrap-datetimepicker-widget').hide();
         var telephone = $('.telephone-validation');
         telephone.each(function(){
@@ -70,12 +70,15 @@ qc.FieldView = qc.View.extend({
     },
 // #d_quickcheckout .country-list {display:none;}
 // #d_quickcheckout .iti-arrow {display:none;}
-    
+
     setDateTime: function(){
         var that = this;
         $('.date', this.el).datetimepicker({
             pickTime: false,
-            dateFormat: "mm/DD/YYYY",
+            //closeOnDateSelect: true,
+            dateFormat: "YYYY-MM-DD",
+            daysOfWeekDisabled: [0, 1], // disable sunday and monday
+            minDate: moment().add(2, 'days').endOf('day')
         })
 
         $('.time', this.el).datetimepicker({

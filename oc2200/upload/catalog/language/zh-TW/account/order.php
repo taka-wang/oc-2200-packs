@@ -14,6 +14,7 @@ $_['text_shipping_method']  = '運送方式';
 $_['text_payment_address']  = '付款地址';
 $_['text_payment_method']   = '付款方式';
 $_['text_comment']          = '訂單備註';
+$_['text_delivery_date']    = '希望到貨日期';
 $_['text_history']          = '訂單記錄';
 $_['text_success']          = '成功: 您已經新增商品<a href="%s">%s</a>到您的<a href="%s">購物車</a>！';
 $_['text_empty']            = '您還沒有購買過本店商品！';
