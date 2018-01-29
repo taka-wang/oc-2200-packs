@@ -4,7 +4,7 @@ I rewrite this [module](https://www.opencart.com/index.php?route=marketplace/ext
 
 ## Usage
 
-In country management panel, add your address format with `{telephone}` field. Since the address format is transcation based, thus it will take affect from the next order.
+In country management panel, add your address format with `{telephone}` field. Since the address format is transaction based, thus it will take affect from the next order.
 
 ## Example
 
