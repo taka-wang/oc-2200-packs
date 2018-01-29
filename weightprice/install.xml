@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <modification>
     <name>Weight Price based shipping</name>
-    <version>0.2</version>
+    <version>0.3</version>
     <author>martian</author>
     <link></link>
     <code>weight_price_based_shipping</code>
