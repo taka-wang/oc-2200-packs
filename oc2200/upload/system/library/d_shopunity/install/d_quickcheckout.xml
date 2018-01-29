@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<modification>
+    <name>Ajax Quick Checkout</name>
+    <code>d_quickcheckout</code>
+    <version>6.4.y</version>
+    <author>Taka Wang</author>
+    <link>https://github.com/taka-wang/ajax_quick_checkout</link>
+
+    <file path="catalog/controller/checkout/checkout.php">
+        <operation>
+            <search ><![CDATA[if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {]]></search>
+            <add position="replace" offset="4"><![CDATA[
+            // a_vqmod_d_quickcheckout.xml
+            if($this->config->get('d_quickcheckout_status')){
+                $template = 'd_quickcheckout';
+            }else{
+                $template = 'checkout';
+            }
+            
+            if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/'.$template.'.tpl')) {
+                $template = $this->config->get('config_template') . '/template/checkout/'.$template.'.tpl';
+            } else {
+                $template = 'default/template/checkout/'.$template.'.tpl';
+            }
+            $this->response->setOutput($this->load->view($template, $data));]]>
+            </add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/checkout.php">
+        <operation error="skip">
+            <search><![CDATA[$this->response->setOutput($this->load->view('checkout/checkout', $data));]]></search>
+            <add position="replace"><![CDATA[
+            // a_vqmod_d_quickcheckout.xml
+            if($this->config->get('d_quickcheckout_status')){
+                $template = 'd_quickcheckout';
+            }else{
+                $template = 'checkout';
+            }
+            
+            $this->response->setOutput($this->load->view('checkout/'.$template, $data));]]></add>
+        </operation>
+    </file>
+    <file path="catalog/controller/checkout/checkout.php">
+        <operation>
+            <search ><![CDATA[$data['header'] = $this->load->controller('common/header');]]></search>
+            <add position="before"><![CDATA[
+        if($this->config->get('d_quickcheckout_status')){
+            $data['d_quickcheckout'] = $this->load->controller('extension/module/d_quickcheckout');
+        }
+        ]]></add>
+        </operation>
+    </file>
+    <file path="system/library/cart/tax.php">
+        <operation>
+            <search ><![CDATA[final class Tax {]]></search>
+            <add position="after"><![CDATA[
+    // a_vqmod_d_quickcheckout.xml
+    public function clearRates(){
+        $this->tax_rates = array();
+    }
+            ]]></add>
+        </operation>
+    </file> 
+    <file path="system/library/tax.php">
+        <operation>
+            <search ><![CDATA[final class Tax {]]></search>
+            <add position="after"><![CDATA[
+    // a_vqmod_d_quickcheckout.xml
+    public function clearRates(){
+        $this->tax_rates = array();
+    }
+            ]]></add>
+        </operation>
+    </file>
+
+<!-- Taka modified begin -->
+
+    <file path="catalog/language/zh-TW/checkout/checkout.php">
+        <operation>
+            <search ><![CDATA['text_comments']]></search>
+            <add position="after"><![CDATA[
+$_['text_delivery_date']             = '預計到貨日期 (D+2)';
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/language/zh-TW/account/order.php">
+        <operation>
+            <search ><![CDATA['text_comment']]></search>
+            <add position="after"><![CDATA[
+$_['text_delivery_date']    = '希望到貨日期';
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/language/en-gb/checkout/checkout.php">
+        <operation>
+            <search ><![CDATA['text_comments']]></search>
+            <add position="after"><![CDATA[
+$_['text_delivery_date']             = 'Expected Delivery Date';
+            ]]></add>
+        </operation>
+    </file>
+    <file path="catalog/language/en-gb/account/order.php">
+        <operation>
+            <search ><![CDATA['text_comment']]></search>
+            <add position="after"><![CDATA[
+$_['text_delivery_date']    = 'Expected Delivery Date';
+            ]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_list.tpl">
+        <operation>
+            <search ><![CDATA[<td class="text-right"><?php echo $column_action; ?></td>]]></search>
+            <add position="before"><![CDATA[
+                  <td class="text-left"><?php if ($sort == 'o.delivery_date') { ?>
+                    <a href="<?php echo $sort_delivery_date; ?>" class="<?php echo strtolower($order); ?>"><?php echo $column_delivery_date; ?></a>
+                    <?php } else { ?>
+                    <a href="<?php echo $sort_delivery_date; ?>"><?php echo $column_delivery_date; ?></a>
+                    <?php } ?></td>
+            ]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[<td class="text-left"><?php echo $order['date_modified']; ?></td>]]></search>
+            <add position="after"><![CDATA[<td class="text-left"><?php echo $order['delivery_date']; ?></td>]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/sale/order_invoice.tpl">
+        <operation>
+            <search ><![CDATA[$text_invoice;]]></search>
+            <add position="replace"><![CDATA[$text_shipping;]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[<?php echo $order['store_address']; ?>]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[<b><?php echo $text_telephone; ?></b> <?php echo $order['store_telephone']; ?><br />]]></search>
+            <add position="replace"><![CDATA[]]></add>
+        </operation>
+
+        <operation>
+            <search index="0"><![CDATA[<?php if ($order['shipping_method']) { ?>]]></search>
+            <add position="before"><![CDATA[<!--]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[<b><?php echo $text_shipping_method; ?></b> <?php echo $order['shipping_method']; ?><br />]]></search>
+            <add position="after" offset="1"><![CDATA[-->
+            <?php if ($order['shipping_method']) { ?>
+            <b><?php echo $text_shipping_method; ?></b> <?php echo $order['shipping_method']; ?><br />
+            <?php } ?>
+            <?php if ($order['delivery_date']) { ?>
+            <b style="color:red"><?php echo $text_delivery_date; ?></b> <?php echo $order['delivery_date']; ?><br />  
+            <?php } ?>
+        </td>]]></add>
+        </operation>
+
+    </file>
+
+    <file path="admin/view/template/sale/order_info.tpl">
+        <operation>
+            <search ><![CDATA[<td><?php echo $shipping_method; ?></td>]]></search>
+            <add position="after" offset="1"><![CDATA[<tr>
+                <td><button data-toggle="tooltip" title="<?php echo $text_delivery_date; ?>" class="btn btn-danger btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
+                <td><?php echo $delivery_date; ?></td>
+              </tr>]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/model/sale/order.php">
+        <operation>
+            <search ><![CDATA[$order_query->row['comment'],]]></search>
+            <add position="before"><![CDATA['delivery_date'           => $order_query->row['delivery_date'],]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[o.currency_value, o.date_added, o.date_modified]]></search>
+            <add position="replace"><![CDATA[o.currency_value, o.date_added, o.date_modified, o.delivery_date ]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$sql .= " AND DATE(o.date_modified) = DATE('" . $this->db->escape($data['filter_date_modified']) . "')";]]></search>
+            <add position="after" offset="1"><![CDATA[
+		if (!empty($data['filter_delivery_date'])) {
+			$sql .= " AND DATE(o.delivery_date) = DATE('" . $this->db->escape($data['filter_delivery_date']) . "')";
+		}
+
+            ]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA['o.date_modified',]]></search>
+            <add position="after"><![CDATA['o.delivery_date',]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/setting/store.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']              = '希望到貨日';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/setting/store.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']          = 'Expected Delivery Date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/setting/setting.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']              = '希望到貨日';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/setting/setting.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']            = 'Expected Delivery Date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/sale/return.php">
+        <operation>
+            <search ><![CDATA[column_date_modified]]></search>
+            <add position="after"><![CDATA[$_['column_delivery_date'] = '希望到貨日期';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = '希望到貨日';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_date_modified]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = '希望到貨日期';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/sale/return.php">
+        <operation>
+            <search ><![CDATA[column_date_modified]]></search>
+            <add position="after"><![CDATA[$_['column_delivery_date'] = 'Expected Delivery Date';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = 'Expected Delivery Date';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_date_modified]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = 'Expected Delivery Date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/sale/order.php">
+        <operation>
+            <search ><![CDATA[text_comment]]></search>
+            <add position="after"><![CDATA[$_['text_delivery_date']        = '希望到貨日期';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[text_picklist]]></search>
+            <add position="after"><![CDATA[$_['text_shipping']            = '出貨明細';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[column_date_modified]]></search>
+            <add position="after"><![CDATA[$_['column_delivery_date']= '希望到貨日期';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']      = '希望到貨日';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_date_modified]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']      = '希望到貨日期';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/sale/order.php">
+        <operation>
+            <search ><![CDATA[text_comment]]></search>
+            <add position="after"><![CDATA[$_['text_delivery_date']        = 'Expected Delivery date';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[text_picklist]]></search>
+            <add position="after"><![CDATA[$_['text_shipping']            = 'Shipping';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[column_date_modified]]></search>
+            <add position="after"><![CDATA[$_['column_delivery_date']= 'Expected Delivery date';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']      = 'Expected Delivery date';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[entry_date_modified]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']      = 'Expected Delivery date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/localisation/location.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = '希望到貨日';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/localisation/location.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date'] = 'Expected Delivery Date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/language/zh-TW/customer/customer.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']   = '希望到貨日';]]></add>
+        </operation>
+    </file>
+    <file path="admin/language/en-gb/customer/customer.php">
+        <operation>
+            <search ><![CDATA[entry_comment]]></search>
+            <add position="after"><![CDATA[$_['entry_delivery_date']   = 'Expected Delivery Date';]]></add>
+        </operation>
+    </file>
+
+    <file path="admin/controller/sale/order.php">
+        <operation>
+            <search ><![CDATA[$filter_date_modified = null;]]></search>
+            <add position="after" offset="1"><![CDATA[
+            if (isset($this->request->get['filter_delivery_date'])) {
+                $filter_delivery_date = $this->request->get['filter_delivery_date'];
+            } else {
+                $filter_delivery_date = null;
+            }
+            ]]></add>
+        </operation>
+
+        <operation>
+            <search ><![CDATA[$url .= '&filter_date_modified=' . $this->request->get['filter_date_modified'];]]></search>
+            <add position="after" offset="1"><![CDATA[
+		if (isset($this->request->get['filter_delivery_date'])) {
+			$url .= '&filter_delivery_date=' . $this->request->get['filter_delivery_date'];
+		}]]></add>
+        </operation>
+
+        <operation>
+            <search ><![CDATA['filter_date_modified' => $filter_date_modified,]]></search>
+            <add position="after"><![CDATA['filter_delivery_date' => $filter_delivery_date,]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA['date_added'    => date($this->language->get('date_format_short'), strtotime($result['date_added'])),]]></search>
+            <add position="replace"><![CDATA['date_added'    => date($this->language->get('datetime_format'), strtotime($result['date_added'])),]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA['date_modified' => date($this->language->get('date_format_short'), strtotime($result['date_modified'])),]]></search>
+            <add position="replace"><![CDATA['date_modified' => date($this->language->get('datetime_format'), strtotime($result['date_modified'])),]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA['shipping_code' => $result['shipping_code'],]]></search>
+            <add position="before"><![CDATA['delivery_date' => date($this->language->get('date_format_short'), strtotime($result['delivery_date'])),]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['column_date_modified']]]></search>
+            <add position="after"><![CDATA[$data['column_delivery_date'] = $this->language->get('column_delivery_date');]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['entry_date_modified']]]></search>
+            <add position="after"><![CDATA[$data['entry_delivery_date'] = $this->language->get('entry_delivery_date');]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['sort_date_modified']]]></search>
+            <add position="after"><![CDATA[$data['sort_delivery_date'] = $this->url->link('sale/order', 'token=' . $this->session->data['token'] . '&sort=o.delivery_date' . $url, true);]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['filter_date_modified']]]></search>
+            <add position="after"><![CDATA[$data['filter_delivery_date'] = $filter_delivery_date;]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['entry_comment']]]></search>
+            <add position="after"><![CDATA[$data['entry_delivery_date'] = $this->language->get('entry_delivery_date');]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$order_info['affiliate_id'];]]></search>
+            <add position="before"><![CDATA[$data['delivery_date'] = $order_info['delivery_date'];]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['comment'] = '';]]></search>
+            <add position="after"><![CDATA[$data['delivery_date'] = '';]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[= nl2br]]></search>
+            <add position="after"><![CDATA[$data['delivery_date'] = date($this->language->get('date_format_short'), strtotime($order_info['delivery_date']));]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['text_comment']]]></search>
+            <add position="after"><![CDATA[$data['text_delivery_date'] = $this->language->get('text_delivery_date');]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['date_added'] = date($this->language->get('date_format_short'), strtotime($order_info['date_added']));]]></search>
+            <add position="replace"><![CDATA[$data['date_added'] = date($this->language->get('datetime_format'), strtotime($order_info['date_added'])); // 訂單管理]]></add>
+        </operation>
+
+        <operation>
+            <search ><![CDATA['date_added' => date($this->language->get('date_format_short'), strtotime($result['date_added']))]]></search>
+            <add position="replace"><![CDATA['date_added' => date($this->language->get('datetime_format'), strtotime($result['date_added'])) // 歷史訂單]]></add>
+        </operation>
+        <operation>
+            <search ><![CDATA[$data['text_invoice'] = $this->language->get('text_invoice');]]></search>
+            <add position="after"><![CDATA[$data['text_shipping'] = $this->language->get('text_shipping');]]></add>
+        </operation>
+        <operation>
+            <search index="0"><![CDATA['date_added'       => date($this->language->get('date_format_short'), strtotime($order_info['date_added'])),]]></search>
+            <add position="replace"><![CDATA['date_added'       => date($this->language->get('datetime_format'), strtotime($order_info['date_added'])), // invoice]]></add>
+        </operation>
+        <operation>
+            <search><![CDATA[=> $total_data,]]></search>
+            <add position="after"><![CDATA['delivery_date'    => date($this->language->get('date_format_short'), strtotime($order_info['delivery_date'])),]]></add>
+        </operation>
+    </file>
+
+<!-- Taka modified end -->
+</modification>
+
