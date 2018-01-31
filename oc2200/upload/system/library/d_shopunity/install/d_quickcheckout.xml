@@ -163,7 +163,7 @@ $_['text_delivery_date']    = 'Expected Delivery Date';
 
     <file path="admin/view/template/sale/order_info.tpl">
         <operation>
-            <search ><![CDATA[<td><?php echo $shipping_method; ?></td>]]></search>
+            <search ><![CDATA[<?php echo $payment_method; ?>]]></search>
             <add position="after" offset="1"><![CDATA[<tr>
                 <td><button data-toggle="tooltip" title="<?php echo $text_delivery_date; ?>" class="btn btn-danger btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
                 <td><?php echo $delivery_date; ?></td>
