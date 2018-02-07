@@ -415,12 +415,6 @@ class ModelCheckoutOrder extends Model {
 				$data['text_footer'] = $language->get('text_new_footer');
 	
 				$data['logo'] = $this->config->get('config_url') . 'image/' . $this->config->get('config_logo');
-
-                $file_parts = pathinfo($data['logo']);
-                if ($file_parts['extension'] == 'svg') {
-                    $data['logo'] = $file_parts['dirname'] . '/' . $file_parts['filename'] . '.' . 'png';
-                }
-            
 				$data['store_name'] = $order_info['store_name'];
 				$data['store_url'] = $order_info['store_url'];
 				$data['customer_id'] = $order_info['customer_id'];

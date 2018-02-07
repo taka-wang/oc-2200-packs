@@ -39,7 +39,7 @@
               <?php if ($shipping_method) { ?>
               <tr>
                 <td><button data-toggle="tooltip" title="<?php echo $text_shipping_method; ?>" class="btn btn-info btn-xs"><i class="fa fa-truck fa-fw"></i></button></td>
-                <td><?php echo $shipping_method; ?></td>
+                <td><?php echo $shipping_method; ?><?php if ($is_tcat_shipping) { ?> &nbsp;<font color="#f56a6b"><?php echo $text_booking_note; ?></font><?php echo $book_note; ?><?php } ?></td>
               </tr>
               <?php } ?>
             </tbody>
@@ -383,6 +383,11 @@ $(document).delegate('#button-ip-add', 'click', function() {
 	});
 });
 
+
+            $(document).delegate('#btn_tcat_create', 'click', function() {
+                $(location).attr('href','index.php?route=shipping/tcat/create_order_form&token=<?php echo $token; ?>&order_id=<?php echo $order_id; ?>');
+            });
+            
 $(document).delegate('#button-invoice', 'click', function() {
 	$.ajax({
 		url: 'index.php?route=sale/order/createinvoiceno&token=<?php echo $token; ?>&order_id=<?php echo $order_id; ?>',

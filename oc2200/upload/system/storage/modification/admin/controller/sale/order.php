@@ -815,6 +815,7 @@ $data['entry_delivery_date'] = $this->language->get('entry_delivery_date');
 			$data['button_reward_add'] = $this->language->get('button_reward_add');
 			$data['button_reward_remove'] = $this->language->get('button_reward_remove');
 			$data['button_commission_add'] = $this->language->get('button_commission_add');
+$data['text_booking_note'] = $this->language->get('text_booking_note');
 			$data['button_commission_remove'] = $this->language->get('button_commission_remove');
 			$data['button_history_add'] = $this->language->get('button_history_add');
 			$data['button_ip_add'] = $this->language->get('button_ip_add');
