@@ -15,8 +15,8 @@
 !/upload/system/storage/cache/index.html
 
 # Modification Files
-/upload/system/storage/modification/*
-!/upload/system/storage/modification/index.html
+#/upload/system/storage/modification/*
+#!/upload/system/storage/modification/index.html
 
 # Templates Files
 /upload/image/templates/*
